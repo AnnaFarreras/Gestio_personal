@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Gestió Auxiliar de Personal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade { transition: all 0.3s ease-in-out; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center p-4">
+  <div id="app" class="max-w-xl w-full bg-white shadow-xl rounded-2xl p-6">
+    <h1 class="text-2xl font-bold mb-4 text-center">Test de Gestió Auxiliar de Personal</h1>
+    <div id="quiz-container"></div>
+    <div class="flex justify-between items-center mt-6">
+      <div id="score" class="text-sm text-gray-600">Encerts: 0 / 0</div>
+      <button id="next-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Següent</button>
+    </div>
+  </div>
+
+  <script>
+    const preguntes = [
+      {
+        pregunta: "Qui pot ser considerat treballador segons la relació laboral?",
+        opcions: [
+          "Qualsevol persona jurídica",
+          "Només majors d'edat",
+          "Empresaris autònoms",
+          "Persones físiques que treballin voluntàriament per compte aliè"
+        ],
+        correcta: 3
+      },
+      {
+        pregunta: "Quina és la jornada laboral màxima ordinària setmanal?",
+        opcions: [
+          "35 hores",
+          "38 hores",
+          "42 hores",
+          "40 hores"
+        ],
+        correcta: 3
+      },
+      {
+        pregunta: "A quantes pagues extres té dret a percebre un treballador?",
+        opcions: [
+          "Una paga extra",
+          "Cap paga extra",
+          "Dues pagues extres",
+          "Tres pagues extres"
+        ],
+        correcta: 2
+      },
+      {
+        pregunta: "Quina capacitat ha de tenir una persona per poder ser contractada com a treballadora?",
+        opcions: [
+          "Ha de ser ciutadana espanyola",
+          "Ha de ser major de 21 anys",
+          "Ha de tenir plena capacitat d'obrar",
+          "Ha de tenir el títol de batxillerat"
+        ],
+        correcta: 2
+      },
+      {
+        pregunta: "Quina és una de les característiques essencials de la relació laboral?",
+        opcions: [
+          "Relació entre dues empreses",
+          "Relació de subordinació del treballador respecte l'empresari",
+          "Relació entre dos treballadors autònoms",
+          "Relació voluntària sense contraprestació"
+        ],
+        correcta: 1
+      }
+    ];
+
+    let preguntesPendents = [...preguntes];
+    let encerts = 0;
+    let total = 0;
+
+    const quizContainer = document.getElementById("quiz-container");
+    const nextBtn = document.getElementById("next-btn");
+    const score = document.getElementById("score");
+
+    function barrejaArray(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function mostraPregunta() {
+      quizContainer.innerHTML = "";
+      nextBtn.classList.add("hidden");
+
+      if (preguntesPendents.length === 0) {
+        quizContainer.innerHTML = `
+          <div class="text-center">
+            <p class="text-xl font-semibold mb-4">🎉 Has completat el test!</p>
+            <p class="mb-4">Has encertat ${encerts} de ${total} preguntes.</p>
+            <button onclick="reinicia()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Reiniciar</button>
+            <button onclick="window.close()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 ml-2">Sortir</button>
+          </div>
+        `;
+        return;
+      }
+
+      preguntesPendents = barrejaArray(preguntesPendents);
+      actual = preguntesPendents.shift();
+      const respostaCorrecta = actual.opcions[actual.correcta];
+      actual.opcions = barrejaArray([...actual.opcions]);
+      actual.correcta = actual.opcions.indexOf(respostaCorrecta);
+
+      const opcionsHTML = actual.opcions.map((text, i) => `
+        <button onclick="validaResposta(${i})" class="w-full text-left px-4 py-2 mb-2 border rounded bg-gray-100 hover:bg-gray-200 opc">${text}</button>
+      `).join("");
+
+      quizContainer.innerHTML = `
+        <p class="mb-4 font-medium">${actual.pregunta}</p>
+        <div id="opcions">${opcionsHTML}</div>
+        <div id="feedback" class="mt-4 text-center"></div>
+      `;
+    }
+
+    function validaResposta(index) {
+      const botons = document.querySelectorAll(".opc");
+      botons.forEach(btn => btn.disabled = true);
+      total++;
+      if (index === actual.correcta) {
+        botons[index].classList.add("bg-green-300");
+        document.getElementById("feedback").innerHTML = "<p class='text-green-600 font-bold'>😊 Molt bé, has encertat la pregunta!</p>";
+        encerts++;
+      } else {
+        botons[index].classList.add("bg-red-300");
+        botons[actual.correcta].classList.add("bg-green-300");
+        document.getElementById("feedback").innerHTML = "<p class='text-red-600 font-bold'>😢 Ohhh! No és correcte!</p>";
+        preguntesPendents.push(actual);
+      }
+      nextBtn.classList.remove("hidden");
+      score.textContent = `Encerts: ${encerts} / ${total}`;
+    }
+
+    function reinicia() {
+      preguntesPendents = [...preguntes];
+      encerts = 0;
+      total = 0;
+      score.textContent = `Encerts: 0 / 0`;
+      mostraPregunta();
+    }
+
+    nextBtn.addEventListener("click", mostraPregunta);
+    mostraPregunta();
+  </script>
+</body>
+</html>
