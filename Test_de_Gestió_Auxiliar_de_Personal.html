@@ -1,77 +1,3467 @@
 <!DOCTYPE html>
+
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test de Gestió Auxiliar de Personal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Test de Gestió Auxiliar de Personal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
     .fade { transition: all 0.3s ease-in-out; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center p-4">
-  <div id="app" class="max-w-xl w-full bg-white shadow-xl rounded-2xl p-6">
-    <h1 class="text-2xl font-bold mb-4 text-center">Test de Gestió Auxiliar de Personal</h1>
-    <div id="quiz-container"></div>
-    <div class="flex justify-between items-center mt-6">
-      <div id="score" class="text-sm text-gray-600">Encerts: 0 / 0</div>
-      <button id="next-btn" class="hidden bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Següent</button>
-    </div>
-  </div>
-
-  <script>
+<div class="max-w-xl w-full bg-white shadow-xl rounded-2xl p-6" id="app">
+<h1 class="text-2xl font-bold mb-4 text-center">Test de Gestió Auxiliar de Personal</h1>
+<div id="quiz-container"></div>
+<div class="flex justify-between items-center mt-6">
+<div class="text-sm text-gray-600" id="score">Encerts: 0 / 0</div>
+<button class="hidden bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" id="next-btn">Següent</button>
+</div>
+</div>
+<script>
     const preguntes = [
-      {
-        pregunta: "Qui pot ser considerat treballador segons la relació laboral?",
-        opcions: [
-          "Qualsevol persona jurídica",
-          "Només majors d'edat",
-          "Empresaris autònoms",
-          "Persones físiques que treballin voluntàriament per compte aliè"
-        ],
-        correcta: 3
-      },
-      {
-        pregunta: "Quina és la jornada laboral màxima ordinària setmanal?",
-        opcions: [
-          "35 hores",
-          "38 hores",
-          "42 hores",
-          "40 hores"
-        ],
-        correcta: 3
-      },
-      {
-        pregunta: "A quantes pagues extres té dret a percebre un treballador?",
-        opcions: [
-          "Una paga extra",
-          "Cap paga extra",
-          "Dues pagues extres",
-          "Tres pagues extres"
-        ],
-        correcta: 2
-      },
-      {
-        pregunta: "Quina capacitat ha de tenir una persona per poder ser contractada com a treballadora?",
-        opcions: [
-          "Ha de ser ciutadana espanyola",
-          "Ha de ser major de 21 anys",
-          "Ha de tenir plena capacitat d'obrar",
-          "Ha de tenir el títol de batxillerat"
-        ],
-        correcta: 2
-      },
-      {
-        pregunta: "Quina és una de les característiques essencials de la relació laboral?",
-        opcions: [
-          "Relació entre dues empreses",
-          "Relació de subordinació del treballador respecte l'empresari",
-          "Relació entre dos treballadors autònoms",
-          "Relació voluntària sense contraprestació"
-        ],
-        correcta: 1
-      }
-    ];
+  {
+    "pregunta": "Quin és l'objecte de la relació laboral?",
+    "opcions": [
+      "L'acord entre diversos treballadors",
+      "La prestació de serveis retribuïts",
+      "La cessió del lloc de treball",
+      "L'obligació d'assistir a reunions sindicals"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és una característica essencial de la relació d'alienitat?",
+    "opcions": [
+      "El treballador treballa per compte propi",
+      "El treballador obté el benefici del treball",
+      "El resultat del treball és propietat del treballador",
+      "El treballador presta serveis per a una altra persona"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Qui pot ser treballador segons la definició de relació laboral?",
+    "opcions": [
+      "Persona jurídica",
+      "Menor de 16 anys",
+      "Persona física que treballa per compte aliè",
+      "Empresari autònom"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la capacitat per treballar d'un menor de 17 anys no emancipat?",
+    "opcions": [
+      "Capacitat plena",
+      "Necessita autorització dels pares o tutors",
+      "Capacitat nul·la",
+      "Només si té contracte indefinit"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quan és obligatori formalitzar un contracte per escrit?",
+    "opcions": [
+      "Sempre",
+      "Només si ho vol l'empresari",
+      "Quan ho exigeix la llei o certs tipus de contracte",
+      "Mai"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina durada màxima té el període de prova per a un tècnic titulat?",
+    "opcions": [
+      "3 mesos",
+      "2 mesos",
+      "6 mesos",
+      "1 mes"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina situació implica que el treballador conserva el dret a sou però no presta serveis?",
+    "opcions": [
+      "Suspensió",
+      "Extinció",
+      "Interrupció",
+      "Jubilació"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quant dura el permís de paternitat des de gener de 2021?",
+    "opcions": [
+      "12 setmanes",
+      "14 setmanes",
+      "16 setmanes",
+      "18 setmanes"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la jornada laboral setmanal ordinària màxima a Espanya?",
+    "opcions": [
+      "35 hores",
+      "38 hores",
+      "40 hores",
+      "42 hores"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què es considera treball nocturn?",
+    "opcions": [
+      "Entre les 8 i les 14 hores",
+      "Entre les 22 i les 6 hores",
+      "Entre les 20 i les 5 hores",
+      "Entre les 21 i les 7 hores"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quants pagues extres ha de percebre un treballador per llei?",
+    "opcions": [
+      "Una",
+      "Dues",
+      "Tres",
+      "Cap"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina part del salari no és embargable?",
+    "opcions": [
+      "Tot el salari",
+      "El salari base",
+      "El salari mínim interprofessional",
+      "Els complements salarials"
+    ],
+    "correcta": 2
+  },
+ {
+    "pregunta": "Segons la definició de 'treballador' al Tema 1, quina és la seva característica principal?",
+    "opcions": [
+      "Que té una empresa pròpia",
+      "Que treballa per compte d'altri",
+      "Que és una persona jurídica",
+      "Que sempre treballa sense contracte"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents afirmacions és correcta sobre la capacitat per a treballar?",
+    "opcions": [
+      "Qualsevol persona pot treballar sense limitacions d'edat.",
+      "Els menors de 16 anys no poden treballar de cap manera.",
+      "Els menors de 16 anys només poden treballar en espectacles públics amb autorització.",
+      "La capacitat per a treballar s'adquireix als 21 anys."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Qui pot ser 'empresari' segons el Tema 1?",
+    "opcions": [
+      "Només les societats anònimes",
+      "Només les persones físiques",
+      "Qualsevol persona física o jurídica que organitzi el treball d'altri",
+      "Només les administracions públiques"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin dels següents és un element essencial de la relació laboral?",
+    "opcions": [
+      "La durada indefinida del contracte",
+      "La pertinença a un sindicat",
+      "La dependència o subordinació",
+      "La prestació gratuïta de serveis"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què significa el caràcter 'voluntari' en la relació laboral?",
+    "opcions": [
+      "Que el treballador pot deixar el treball quan vulgui sense avís",
+      "Que el treballador presta els seus serveis lliurement, sense coacció",
+      "Que l'empresari pot obligar al treballador a fer hores extres",
+      "Que no hi ha obligació de signar un contracte"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què implica el caràcter 'personalíssim' en la relació laboral?",
+    "opcions": [
+      "Que el treballador pot ser substituït per qualsevol persona",
+      "Que els serveis han de ser prestats directament pel treballador contractat",
+      "Que el treballador ha de portar uniforme",
+      "Que la relació es basa en l'amistat"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin element de la relació laboral es refereix a la direcció i organització de l'empresari?",
+    "opcions": [
+      "Voluntarietat",
+      "Retribució",
+      "Dependència",
+      "Alienitat"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què significa 'alienitat' en el context de la relació laboral?",
+    "opcions": [
+      "Que els fruits del treball pertanyen al treballador",
+      "Que el treballador assumeix els riscos de l'empresa",
+      "Que els fruits del treball i els riscos els assumeix l'empresari",
+      "Que el treballador és estranger"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la definició de 'retribució' com a element de la relació laboral?",
+    "opcions": [
+      "El pagament de despeses de transport",
+      "La compensació econòmica pel treball prestat",
+      "Els beneficis obtinguts per l'empresari",
+      "Les hores extraordinàries"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els familiars d'un empresari que conviuen amb ell, ¿poden ser treballadors per compte d'altri?",
+    "opcions": [
+      "Sí, sempre que hi hagi contracte escrit.",
+      "No, la seva relació es considera laboral especial.",
+      "No, estan exclosos de l'àmbit laboral si no hi ha dependència.",
+      "Sí, si reben un sou."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina d'aquestes NO és una relació laboral de caràcter especial?",
+    "opcions": [
+      "La relació laboral dels artistes en espectacles públics",
+      "La relació laboral dels esportistes professionals",
+      "La relació laboral dels treballadors d'empreses de serveis temporals",
+      "La relació laboral dels empleats de la llar"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Els funcionaris públics, ¿estan inclosos en l'àmbit de la legislació laboral ordinària?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, es regeixen per la normativa administrativa.",
+      "Només si tenen un contracte temporal.",
+      "Depèn del tipus de funcionari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què es considera 'treball per compte propi' i per tant, exclòs de la relació laboral ordinària?",
+    "opcions": [
+      "Treballar en una oficina amb horari fix.",
+      "Una persona que treballa per a diverses empreses simultàniament amb contractes laborals.",
+      "Una persona que organitza la seva pròpia activitat i assumeix els riscos.",
+      "Un treballador amb contracte a temps parcial."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Els treballs realitzats a títol d'amistat, benedicència o bon veïnatge, ¿són relacions laborals?",
+    "opcions": [
+      "Sí, si es rep alguna compensació.",
+      "No, estan exclosos de l'àmbit laboral.",
+      "Depèn de la durada del servei.",
+      "Només si hi ha un contracte verbal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la capacitat per a contractar de l'empresari, segons el text?",
+    "opcions": [
+      "Només la capacitat legal per obrar",
+      "Només ser major de 18 anys",
+      "Ser major d'edat o emancipat i tenir plena capacitat per obrar",
+      "Qualsevol persona pot contractar"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Un menor de 16 anys emancipat, pot treballar?",
+    "opcions": [
+      "Sí, sense restriccions.",
+      "No, mai.",
+      "Només amb autorització dels seus pares o tutors legals per activitats específiques.",
+      "Només en l'empresa familiar."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "La prestació de serveis de consellers o membres d'òrgans d'administració en societats mercantils, ¿és una relació laboral ordinària?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, és una relació mercantil.",
+      "Depèn de si reben salari.",
+      "Només si tenen contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és una característica fonamental de la 'dependència' en una relació laboral?",
+    "opcions": [
+      "El treballador decideix l'horari i el lloc de treball.",
+      "El treballador rep ordres i instruccions de l'empresari.",
+      "El treballador utilitza els seus propis mitjans de producció.",
+      "El treballador assumeix els beneficis i les pèrdues."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador autònom, ¿és considerat 'treballador' segons la legislació laboral ordinària?",
+    "opcions": [
+      "Sí, si té un client fix.",
+      "No, ja que treballa per compte propi.",
+      "Només si cotitza a la Seguretat Social.",
+      "Depèn dels ingressos que tingui."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un amic m'ajuda a pintar casa meva sense rebre diners, ¿és una relació laboral?",
+    "opcions": [
+      "Sí, perquè hi ha una prestació de serveis.",
+      "No, perquè és un treball a títol d'amistat.",
+      "Depèn si li he convidat a sopar.",
+      "Només si ha durat més d'un dia."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents NO és una relació laboral especial?",
+    "opcions": [
+      "Empleats de la llar familiar",
+      "Esportistes professionals",
+      "Treballadors en centres especials d'ocupació",
+      "Treballadors agraris"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Un menor de 16 anys que treballa sense autorització en una fàbrica, ¿quin tipus de relació té amb l'empresa?",
+    "opcions": [
+      "És una relació laboral vàlida",
+      "És una relació laboral nul·la, per tant, il·legal",
+      "És una relació mercantil",
+      "És una relació laboral de caràcter especial"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què succeeix si en una relació hi manca el caràcter de 'voluntarietat'?",
+    "opcions": [
+      "Es considera una relació laboral ordinària",
+      "Esdevé una relació laboral especial",
+      "Deixa de ser una relació laboral i pot ser un delicte",
+      "No afecta la legalitat de la relació"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "La capacitat per a treballar d'un estranger, ¿està condicionada per alguna particularitat?",
+    "opcions": [
+      "No, és igual que un nacional.",
+      "Sí, per la normativa d'estrangeria i permís de treball.",
+      "Només si és d'un país fora de la UE.",
+      "Depèn del tipus de contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els serveis prestats pels consellers d'administració d'una empresa amb dedicació exclusiva, ¿es consideren relació laboral?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, exclosos de l'àmbit laboral.",
+      "Depèn si són remunerats.",
+      "Només si tenen un contracte a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin element de la relació laboral implica que el treballador no assumeix el risc i ventura de l'activitat?",
+    "opcions": [
+      "Voluntarietat",
+      "Personalíssim",
+      "Dependència",
+      "Alienitat"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Una persona física que contracta un jardiner per a la seva casa particular, ¿és un empresari segons la legislació laboral?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, només si té una empresa.",
+      "Sí, si contracta el treball d'altri.",
+      "Només si el jardiner és autònom."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina de les següents professions NO té una relació laboral de caràcter especial?",
+    "opcions": [
+      "Treballadors penats en institucions penitenciàries",
+      "Representants de comerç",
+      "Personal d'alta direcció",
+      "Treballadors de la construcció"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Què es requereix per a que un menor de 16 anys pugui intervenir en espectacles públics?",
+    "opcions": [
+      "Només el permís dels pares.",
+      "Autorització de l'autoritat laboral.",
+      "Un contracte indefinit.",
+      "Que sigui en vacances escolars."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La relació laboral es basa en el principi de la:",
+    "opcions": [
+      "Llibertat d'empresa",
+      "Autonomia de la voluntat",
+      "Contractació lliure",
+      "Heteroorganització"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Quina de les següents és una característica de la relació laboral d'alta direcció?",
+    "opcions": [
+      "La seva regulació és exclusivament per conveni col·lectiu.",
+      "Es regeix principalment pel contracte individual i la legislació específica.",
+      "No té període de prova.",
+      "És sempre una relació temporal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els serveis dels transportistes que tenen vehicles propis i organitzen lliurement el seu treball, ¿són relacions laborals?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, solen ser autònoms.",
+      "Depèn si treballen per una única empresa.",
+      "Només si tenen un horari fix."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la finalitat dels elements essencials de la relació laboral?",
+    "opcions": [
+      "Determinar el salari del treballador.",
+      "Distinguir una relació laboral d'altres tipus de relacions jurídiques.",
+      "Establir la durada del contracte.",
+      "Regular els dies de vacances."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si una persona aporta capital a una societat i no treballa activament en ella, ¿és treballador per compte d'altri?",
+    "opcions": [
+      "Sí, si és soci.",
+      "No, és un inversor o soci capitalista.",
+      "Depèn del percentatge de la seva participació.",
+      "Només si rep dividends."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La relació laboral de les persones amb discapacitat que treballen en centres especials d'ocupació, ¿és de caràcter especial?",
+    "opcions": [
+      "Sí.",
+      "No.",
+      "Depèn del tipus de discapacitat.",
+      "Només si reben ajudes públiques."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quina d'aquestes afirmacions és certa sobre l'empresari?",
+    "opcions": [
+      "Només les grans empreses poden ser empresaris.",
+      "Pot ser una persona física o jurídica, pública o privada.",
+      "Ha de tenir un mínim de 10 treballadors.",
+      "No pot contractar familiars."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què succeeix si no hi ha 'retribució' en una prestació de serveis?",
+    "opcions": [
+      "Es considera una relació laboral de caràcter especial.",
+      "No es pot considerar una relació laboral.",
+      "La relació és il·legal.",
+      "El treballador pot reclamar un salari mínim."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els treballs forçosos o obligatoris, ¿estan exclosos de l'àmbit laboral?",
+    "opcions": [
+      "No, són una relació laboral ordinària.",
+      "Sí, excepte en casos de compliment de condemna.",
+      "Sempre són relacions laborals.",
+      "Només si són ordenats per un jutge."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què vol dir 'persona física' en la definició de treballador?",
+    "opcions": [
+      "Que és una empresa.",
+      "Que és un ésser humà.",
+      "Que té una figura jurídica.",
+      "Que és una organització sense ànim de lucre."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La relació laboral dels esportistes professionals, ¿està regulada pel mateix Estatut dels Treballadors que la resta?",
+    "opcions": [
+      "Sí, íntegrament.",
+      "No, tenen una regulació específica.",
+      "Només en els aspectes de salari.",
+      "Depèn del club esportiu."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents no seria una característica d'una relació 'exclosa' de l'àmbit laboral?",
+    "opcions": [
+      "Que no hi hagi dependència.",
+      "Que no hi hagi retribució.",
+      "Que els serveis es prestin per compte d'altri.",
+      "Que es tracti d'un treball voluntari i desinteressat."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Un jove de 15 anys que treballa com a model amb l'autorització legal, ¿quina relació laboral té?",
+    "opcions": [
+      "Cap, està exclosa.",
+      "És una relació laboral de caràcter ordinari.",
+      "És una relació laboral de caràcter especial.",
+      "És il·legal."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què implica que l'empresari té el poder de 'direcció'?",
+    "opcions": [
+      "Que el treballador pot decidir sobre l'organització de l'empresa.",
+      "Que l'empresari pot donar ordres i instruccions al treballador.",
+      "Que el treballador pot fixar el seu propi horari.",
+      "Que l'empresari ha de pagar les despeses del treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La relació dels reclusos que presten serveis en tallers penitenciaris, ¿és una relació laboral ordinària?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, és una relació laboral de caràcter especial.",
+      "Està exclosa de l'àmbit laboral.",
+      "Depèn si reben un sou."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La relació dels venedors que no assumeixen el risc i ventura de l'operació, i depenen d'un empresari, ¿com es classifica?",
+    "opcions": [
+      "Autònoms.",
+      "Relació mercantil.",
+      "Relació laboral ordinària.",
+      "Relació laboral especial de representació de comerç."
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Què és la 'capacitat per a treballar'?",
+    "opcions": [
+      "L'habilitat per realitzar qualsevol feina.",
+      "La idoneïtat legal per ser titular d'una relació laboral.",
+      "La formació acadèmica d'una persona.",
+      "L'experiència professional."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els serveis prestats per voluntaris en ONG, ¿són relacions laborals?",
+    "opcions": [
+      "Sí, si hi ha un horari fix.",
+      "No, ja que són a títol de benedicència i sense retribució.",
+      "Depèn si reben ajudes per despeses.",
+      "Només si duren molt de temps."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina norma regula les relacions laborals de caràcter especial?",
+    "opcions": [
+      "El Codi Civil.",
+      "L'Estatut dels Treballadors i les seves normes específiques.",
+      "Només el contracte individual.",
+      "Els convenis col·lectius exclusivament."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què significa que un treballador sigui 'emancipat' a efectes laborals?",
+    "opcions": [
+      "Que ha complert 18 anys.",
+      "Que pot actuar legalment com si fos major d'edat.",
+      "Que ha rebut una herència.",
+      "Que ha estat acomiadat sense causa."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La figura del 'Trade' (Treballador Autònom Dependent) és una relació laboral especial?",
+    "opcions": [
+      "Sí.",
+      "No, està exclosa de l'àmbit laboral.",
+      "És una relació laboral ordinària.",
+      "Només si treballa exclusivament per un client."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Què és una 'persona jurídica' en el context d'empresari?",
+    "opcions": [
+      "Un ésser humà.",
+      "Una empresa o entitat amb personalitat jurídica pròpia (SL, SA, etc.).",
+      "Un autònom.",
+      "Un treballador públic."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La finalitat de la relació laboral és:",
+    "opcions": [
+      "L'obtenció de beneficis per part del treballador.",
+      "La prestació de serveis per compte d'altri a canvi d'una retribució.",
+      "La creació d'una amistat entre empresari i treballador.",
+      "L'aprenentatge d'un ofici."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els treballs familiars sense retribució, ¿són relacions laborals?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, exclosos de l'àmbit laboral si no hi ha dependència i retribució.",
+      "Depèn del grau de parentiu.",
+      "Només si hi ha un contracte escrit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin dels següents elements NO és un indicador de dependència?",
+    "opcions": [
+      "El treballador segueix les ordres de l'empresari.",
+      "El treballador utilitza els mitjans de producció de l'empresa.",
+      "El treballador pot decidir l'horari i el lloc de treball lliurement.",
+      "El treballador està integrat en l'organització de l'empresa."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "La relació laboral del personal investigador en formació, ¿és especial?",
+    "opcions": [
+      "No, és ordinària.",
+      "Sí.",
+      "Depèn si és en una universitat pública.",
+      "Només si té una beca."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Per a que hi hagi una relació laboral, el treball ha de ser:",
+    "opcions": [
+      "Gratuït.",
+      "Remunerat.",
+      "Realitzat per un familiar.",
+      "Només a temps complet."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La capacitat per a contractar de l'empresari es refereix a:",
+    "opcions": [
+      "La seva habilitat per gestionar una empresa.",
+      "La seva condició legal per poder celebrar contractes de treball.",
+      "El nombre màxim de treballadors que pot contractar.",
+      "La seva solvència econòmica."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador autònom que contracta un empleat, ¿adquireix la condició d'empresari respecte a aquest empleat?",
+    "opcions": [
+      "No, un autònom mai pot ser empresari.",
+      "Sí, en relació amb els seus treballadors contractats.",
+      "Només si la seva activitat supera un cert volum.",
+      "Depèn del tipus de contracte que faci."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els menors de 18 anys i majors de 16, ¿poden contractar-se?",
+    "opcions": [
+      "No, necessiten l'emancipació.",
+      "Sí, amb l'autorització dels seus pares o tutors.",
+      "Sí, lliurement.",
+      "Només per treballs a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què NO és un requisit per ser considerat 'treballador' segons el text?",
+    "opcions": [
+      "Ser persona física.",
+      "Prestar serveis voluntàriament.",
+      "Estar inscrit en el Registre Mercantil.",
+      "Treballar per compte i dins de l'àmbit d'organització d'altri."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin dels següents no és un element essencial de la relació laboral?",
+    "opcions": [
+      "Voluntarietat",
+      "Retribució",
+      "Dependència",
+      "Representació sindical"
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "Quina és la capacitat mínima d'edat per a poder contractar segons el temari?",
+    "opcions": [
+      "14 anys",
+      "16 anys",
+      "18 anys",
+      "No hi ha edat mínima"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin tipus de relació laboral es considera 'de caràcter especial'?",
+    "opcions": [
+      "Treball en una empresa familiar",
+      "Treball de la llar familiar",
+      "Treball de prestació de serveis d'advocats",
+      "Treball d'autònoms dependents"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és una obligació formal del contracte laboral segons el document?",
+    "opcions": [
+      "Que sigui verbal",
+      "Que sigui sempre indefinit",
+      "Que es registri a l'Oficina Pública d'Ocupació",
+      "Que inclogui una clàusula de confidencialitat"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina afirmació és correcta sobre el període de prova?",
+    "opcions": [
+      "No pot superar els 6 mesos",
+      "És obligatori en tots els contractes",
+      "El treballador pot desistir de la relació laboral sense preavís durant aquest període",
+      "El salari durant el període de prova és inferior"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la durada màxima de la jornada setmanal ordinària a Espanya, segons el PDF?",
+    "opcions": [
+      "35 hores",
+      "40 hores",
+      "45 hores",
+      "No s'especifica al document"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina d'aquestes retribucions no s'inclou en el concepte de salari?",
+    "opcions": [
+      "Comissions per vendes",
+      "Hores extraordinàries",
+      "Indemnització per despeses de viatge",
+      "Plus de perillositat"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què és inembargable del salari d'un treballador?",
+    "opcions": [
+      "El 50% del salari brut",
+      "La quantitat equivalent al SMI",
+      "Només les pagues extraordinàries",
+      "Qualsevol quantitat si el deute és d'hisenda"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin organisme és el Fons de Garantia Salarial (FOGASA)?",
+    "opcions": [
+      "Una entitat bancària",
+      "Un sindicat de treballadors",
+      "Un organisme autònom dependent del Ministeri de Treball i la Seguretat Social",
+      "Una asseguradora privada"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quan s'aplica l'excepció a la inembargabilitat del salari per pensions alimentàries?",
+    "opcions": [
+      "Només si el deutor no té altres béns",
+      "Mai, el SMI és sempre inembargable",
+      "El jutge pot acordar l'embargament fins i tot afectant el SMI",
+      "S'aplica la mateixa escala que per altres deutes"
+    ],
+    "correcta": 2
+  },
+ {
+    "pregunta": "Quina és la regla general de forma del contracte de treball segons el Tema 2?",
+    "opcions": [
+      "Sempre ha de ser per escrit.",
+      "Pot ser verbal o escrit.",
+      "Sempre ha de ser davant notari.",
+      "Només és vàlid si és verbal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin dels següents contractes SÍ ha de ser per escrit obligatòriament?",
+    "opcions": [
+      "Contracte indefinit a temps complet.",
+      "Contracte a temps parcial.",
+      "Contracte de durada determinada inferior a 4 setmanes.",
+      "Contracte verbal per substitució."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin termini té l'empresari per comunicar el contracte a l'Oficina Pública d'Ocupació?",
+    "opcions": [
+      "10 dies des de la signatura.",
+      "20 dies des de la signatura.",
+      "10 dies des de l'inici de la relació laboral.",
+      "No hi ha termini, és opcional."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què succeeix si un contracte temporal es fa de forma verbal i hauria de ser escrit?",
+    "opcions": [
+      "Es considera nul de ple dret.",
+      "Es presumeix celebrat per temps indefinit i a jornada completa.",
+      "L'empresari és multat amb una sanció lleu.",
+      "El treballador perd els seus drets."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui pot celebrar el contracte de treball en nom de l'empresari?",
+    "opcions": [
+      "Només el propietari de l'empresa.",
+      "Qualsevol treballador de l'empresa.",
+      "La persona que tingui la capacitat per a contractar o el seu representant legal o voluntari.",
+      "Només un gestor extern."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la durada màxima del període de prova per a tècnics titulats, si no hi ha pacte en el conveni col·lectiu?",
+    "opcions": [
+      "1 mes.",
+      "3 mesos.",
+      "6 mesos.",
+      "No hi ha límit."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Durant el període de prova, quina de les següents afirmacions és correcta?",
+    "opcions": [
+      "El treballador no té dret a salari.",
+      "Qualsevol de les parts pot rescindir el contracte sense preavís ni indemnització.",
+      "L'empresari no pot rescindir el contracte.",
+      "El treballador no cotitza a la Seguretat Social."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador ha realitzat les mateixes funcions en la mateixa empresa anteriorment, ¿pot tenir un nou període de prova?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, excepte pacte en contrari.",
+      "No, si la interrupció no ha superat els 3 mesos.",
+      "Només si han passat més de 5 anys."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la funció principal d'un conveni col·lectiu?",
+    "opcions": [
+      "Regular les relacions entre l'empresari i el govern.",
+      "Establir les condicions de treball i productivitat per a un sector o empresa.",
+      "Crear noves lleis laborals.",
+      "Gestionar la Seguretat Social."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina jerarquia té un conveni col·lectiu respecte a l'Estatut dels Treballadors?",
+    "opcions": [
+      "Està per sobre de l'Estatut.",
+      "Està per sota de l'Estatut, però pot millorar les seves condicions.",
+      "Té la mateixa jerarquia.",
+      "No té cap relació."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina modalitat de contracte és la regla general?",
+    "opcions": [
+      "El contracte indefinit.",
+      "El contracte temporal per obra o servei.",
+      "El contracte en pràctiques.",
+      "El contracte de formació."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Un contracte de treball pot tenir una durada determinada per a qualsevol causa?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, només per les causes establertes per la llei.",
+      "Depèn del sector.",
+      "Si així ho volen les parts."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de contracte està pensat per a l'adquisició de pràctica professional?",
+    "opcions": [
+      "Contracte indefinit.",
+      "Contracte en pràctiques.",
+      "Contracte per obra o servei.",
+      "Contracte d'interinitat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada mínima d'un contracte en pràctiques?",
+    "opcions": [
+      "6 mesos.",
+      "1 any.",
+      "La que acordin les parts.",
+      "No hi ha durada mínima."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quin és el salari mínim en un contracte en pràctiques durant el primer any?",
+    "opcions": [
+      "El 100% del salari fixat en conveni per a un treballador igual o similar.",
+      "El 60% del salari fixat en conveni per a un treballador igual o similar.",
+      "El 75% del salari fixat en conveni per a un treballador igual o similar.",
+      "El Salari Mínim Interprofessional (SMI)."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és l'objectiu del contracte per a la formació en alternança?",
+    "opcions": [
+      "Adquirir experiència laboral.",
+      "Alternar activitat laboral retribuïda amb formació en el marc d'un sistema dual de formació.",
+      "Substituir treballadors en excedència.",
+      "Realitzar una obra o servei concret."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin requisit d'edat es demana per al contracte de formació en alternança?",
+    "opcions": [
+      "Sense límit d'edat.",
+      "Entre 16 i 25 anys.",
+      "Entre 18 i 30 anys.",
+      "Només per a menors de 21 anys."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quina és la durada mínima i màxima d'un contracte de formació en alternança?",
+    "opcions": [
+      "3 mesos a 1 any.",
+      "6 mesos a 3 anys.",
+      "3 mesos a 2 anys.",
+      "1 mes a 6 mesos."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin és el salari mínim en un contracte de formació en alternança?",
+    "opcions": [
+      "Mai inferior al SMI en proporció al temps de treball efectiu.",
+      "El 50% del salari fixat en conveni.",
+      "Sense salari durant la formació.",
+      "El 80% del salari el primer any i el 90% el segon."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quin tipus de contracte es pot celebrar per a la realització d'una obra o servei amb autonomia i substantivitat pròpies?",
+    "opcions": [
+      "Contracte indefinit.",
+      "Contracte per a obra o servei determinat (fins a la reforma laboral de 2021).",
+      "Contracte d'interinitat.",
+      "Contracte de relleu."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Amb la reforma laboral de 2021, el contracte per obra o servei determinat, ¿segueix existint com a modalitat principal?",
+    "opcions": [
+      "Sí, amb les mateixes característiques.",
+      "No, ha estat substituït per altres modalitats temporals.",
+      "Només per a obres molt grans.",
+      "Només si així ho estableix el conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la nova modalitat de contracte temporal per 'circumstàncies de la producció'?",
+    "opcions": [
+      "La que substitueix al contracte d'obra o servei.",
+      "Per a situacions ocasionals i imprevisibles.",
+      "Per a cobrir una vacant permanent.",
+      "Exclusivament per a noves obertures de centres."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada màxima del contracte temporal per circumstàncies de la producció si no hi ha conveni sectorial?",
+    "opcions": [
+      "3 mesos.",
+      "6 mesos, ampliable a 1 any per conveni col·lectiu.",
+      "1 any.",
+      "Indefinida."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quan es pot utilitzar el contracte temporal per 'substitució de treballador amb dret a reserva de lloc de treball'?",
+    "opcions": [
+      "Per cobrir qualsevol baixa.",
+      "Per substituir un treballador que torna al seu lloc, identificat al contracte.",
+      "Només per substitucions per malaltia.",
+      "Quan no hi ha treballadors disponibles."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El període de prova pot ser prorrogat?",
+    "opcions": [
+      "Sí, tantes vegades com es vulgui.",
+      "No, un cop finalitzat no es pot prorrogar.",
+      "Només si hi ha un conveni col·lectiu que ho permeti.",
+      "Només en contractes de més d'un any."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin document recull les condicions mínimes de treball i les relacions laborals?",
+    "opcions": [
+      "El contracte individual.",
+      "El conveni col·lectiu.",
+      "El reglament intern de l'empresa.",
+      "El BOE (Butlletí Oficial de l'Estat)."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En un contracte a temps parcial, quantes hores complementàries es poden realitzar?",
+    "opcions": [
+      "Les que vulguin les parts.",
+      "Fins a un 30% de la jornada ordinària, ampliable per conveni fins al 60%.",
+      "No es poden realitzar hores complementàries.",
+      "Un màxim de 80 hores anuals."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de contracte es pot convertir en indefinit?",
+    "opcions": [
+      "Només els contractes temporals que superen els límits legals.",
+      "Qualsevol contracte temporal, si les parts així ho acorden.",
+      "Només els contractes formatius.",
+      "Cap contracte temporal es pot convertir en indefinit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és l'obligació de l'empresari al finalitzar un contracte temporal, si no hi ha causa d'extinció?",
+    "opcions": [
+      "Pagar una indemnització per acomiadament improcedent.",
+      "Pagar una indemnització de 12 dies per any de servei, o la que correspongui segons la modalitat.",
+      "No té cap obligació.",
+      "Oferir un nou contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador amb un contracte temporal encadena contractes successius per la mateixa o diferent raó d'empresa, ¿pot esdevenir indefinit?",
+    "opcions": [
+      "No, mai.",
+      "Sí, si en un període de 24 mesos ha estat contractat durant 18 mesos o més.",
+      "Només si són 3 contractes o més.",
+      "Depèn del sector d'activitat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la finalitat del contracte indefinit d'adscripció a obres al sector de la construcció?",
+    "opcions": [
+      "Substituir un treballador amb dret a reserva del lloc de feina.",
+      "Oferir estabilitat a treballadors del sector de la construcció un cop finalitzada una obra.",
+      "Fer treballs de manteniment.",
+      "Realitzar pràctiques professionals."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En el contracte indefinit adscrit a obra al sector de la construcció, un cop finalitzada l'obra, ¿quin termini té l'empresa per recol·locar el treballador?",
+    "opcions": [
+      "15 dies.",
+      "30 dies.",
+      "No hi ha termini, ha de ser immediat.",
+      "No cal que el recol·loqui."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin contracte s'utilitza per a la substitució de treballadors durant les vacances?",
+    "opcions": [
+      "Contracte per circumstàncies de la producció.",
+      "Contracte de substitució.",
+      "Contracte fix discontinu.",
+      "Contracte d'interinitat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què passa si un contracte temporal no s'ajusta a la causa legal que el justifica?",
+    "opcions": [
+      "Es considera un contracte de formació.",
+      "Es presumeix celebrat per temps indefinit.",
+      "L'empresari pot ser multat.",
+      "El contracte es rescindeix automàticament."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La informació sobre el contracte (durada, categories, etc.) s'ha de lliurar al treballador per escrit quan el contracte és verbal?",
+    "opcions": [
+      "No, no és necessari.",
+      "Sí, l'empresari té l'obligació de lliurar-li una còpia o comunicació.",
+      "Només si ho demana el treballador.",
+      "Dependrà del sector."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un contracte temporal té una durada superior a l'establerta legalment, ¿què passa amb el contracte?",
+    "opcions": [
+      "Esdevé nul.",
+      "Es converteix en indefinit.",
+      "Es prorroga automàticament.",
+      "No té cap efecte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la funció de la Seguretat Social respecte al contracte de treball?",
+    "opcions": [
+      "Determinar el salari del treballador.",
+      "Registrar els contractes i cotitzacions dels treballadors.",
+      "Resoldre conflictes laborals.",
+      "Aprovar els convenis col·lectius."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els drets i deures del treballador i de l'empresari, ¿es poden modificar pel contracte individual?",
+    "opcions": [
+      "Sí, lliurement.",
+      "No, són inalterables.",
+      "Només si beneficien al treballador, mai per sota del que estableix la llei o el conveni.",
+      "Depèn de l'antiguitat del treballador."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Un contracte a temps parcial amb més hores de les declarades, ¿quin risc implica per a l'empresari?",
+    "opcions": [
+      "Cap, si ho acorden les parts.",
+      "Es pot presumir que és un contracte a temps complet.",
+      "Una sanció lleu.",
+      "El contracte esdevé nul."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quins contractes temporals s'han simplificat amb la reforma laboral de 2021?",
+    "opcions": [
+      "El contracte en pràctiques i el de formació.",
+      "El contracte per obra o servei i el d'interinitat.",
+      "Tots els contractes temporals.",
+      "Només el contracte a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un contracte fix-discontinu?",
+    "opcions": [
+      "Un contracte temporal de curta durada.",
+      "Un contracte indefinit per a treballs de naturalesa estacional o vinculats a activitats productives de temporada.",
+      "Un contracte de formació per a treballadors aturats.",
+      "Un contracte a temps parcial amb hores complementàries."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la finalitat del contracte de relleu?",
+    "opcions": [
+      "Substituir un treballador jubilat parcialment.",
+      "Ocupar una vacant permanent.",
+      "Realitzar tasques puntuals.",
+      "Formar a nous treballadors."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "El contracte a temps parcial, ¿pot ser indefinit o temporal?",
+    "opcions": [
+      "Només indefinit.",
+      "Només temporal.",
+      "Pot ser indefinit o temporal.",
+      "No s'especifica en el temari."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és l'obligació principal del treballador segons el Tema 2?",
+    "opcions": [
+      "Pagar les seves quotes a la Seguretat Social.",
+      "Prestar els seus serveis amb diligència i bona fe.",
+      "Trobar nous clients per a l'empresa.",
+      "Decidir els seus propis horaris."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents és una obligació de l'empresari segons el Tema 2?",
+    "opcions": [
+      "Permetre al treballador fixar el seu propi salari.",
+      "Pagar el salari pactat i cotitzar a la Seguretat Social.",
+      "No supervisar al treballador.",
+      "No proporcionar eines de treball."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin contracte s'ha de formalitzar per escrit en tots els casos?",
+    "opcions": [
+      "Contractes temporals de menys de 4 setmanes.",
+      "Contractes indefinits a temps complet.",
+      "Tots els contractes temporals i a temps parcial.",
+      "Només els contractes de formació."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Si en un contracte temporal no s'indica la causa del contracte, ¿què passa?",
+    "opcions": [
+      "El contracte és vàlid però amb una penalització.",
+      "El contracte es presumeix indefinit.",
+      "El contracte es pot prorrogar il·limitadament.",
+      "El treballador perd els seus drets."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En un contracte de formació, quina part de la jornada ha de ser de formació?",
+    "opcions": [
+      "Almenys el 25% de la jornada laboral.",
+      "La meitat de la jornada.",
+      "No hi ha un percentatge fix, depèn de la formació.",
+      "Tota la jornada."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Què succeeix si no es respecta el període de prova i l'empresari rescindeix el contracte?",
+    "opcions": [
+      "La rescissió és il·legal i el contracte esdevé indefinit.",
+      "La rescissió és legal si es fa dins del període de prova.",
+      "El treballador té dret a una indemnització per acomiadament improcedent.",
+      "No té cap efecte legal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin contracte és per a treballs que, sent indefinits, es realitzen de forma intermitent en el temps?",
+    "opcions": [
+      "Contracte temporal per circumstàncies de la producció.",
+      "Contracte fix discontinu.",
+      "Contracte d'interinitat.",
+      "Contracte de relleu."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El període de prova d'un contracte d'obra o servei (abans de la reforma), ¿podia superar els 6 mesos?",
+    "opcions": [
+      "Sí, si ho pactava el conveni col·lectiu.",
+      "No, mai.",
+      "Només si el contracte durava més de 2 anys.",
+      "Dependrà del que pactessin les parts."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quan entra en vigor un conveni col·lectiu?",
+    "opcions": [
+      "En el moment de la seva signatura.",
+      "En la data que el mateix conveni estableixi, o el dia següent a la seva publicació oficial.",
+      "Quan el ratifica el govern.",
+      "Quan totes les empreses el llegeixen."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'pacte de no concurrència' en un contracte de treball?",
+    "opcions": [
+      "Una clàusula que prohibeix al treballador fer vaga.",
+      "Una clàusula que impedeix al treballador treballar en empreses del mateix sector un cop finalitzat el contracte.",
+      "Un acord per no competir en el mercat.",
+      "Un acord per compartir beneficis."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les hores complementàries en un contracte a temps parcial, ¿poden ser obligatòries?",
+    "opcions": [
+      "No, sempre són voluntàries.",
+      "Sí, si s'han pactat expressament en un 'pacte d'hores complementàries'.",
+      "Només si ho diu el conveni.",
+      "Sempre que l'empresari les demani."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador amb contracte temporal no rep la indemnització en finalitzar el contracte, ¿quina acció pot prendre?",
+    "opcions": [
+      "No pot fer res.",
+      "Reclamar-la a través dels tribunals.",
+      "Esperar que l'empresa la pagui.",
+      "Demanar un nou contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de contracte és obligatori registrar a l'Oficina Pública d'Ocupació?",
+    "opcions": [
+      "Només els indefinits.",
+      "Tots els contractes de treball.",
+      "Només els temporals.",
+      "Cap, és voluntari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un contracte de formació, ¿es pot fer amb una persona amb titulació universitària ja obtinguda per a aquesta ocupació?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, perquè ja té la titulació.",
+      "Depèn si la titulació és de fa poc.",
+      "Només si no troba feina d'una altra manera."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de contracte no té un límit màxim de durada?",
+    "opcions": [
+      "El contracte temporal per circumstàncies de la producció.",
+      "El contracte en pràctiques.",
+      "El contracte indefinit.",
+      "El contracte de formació en alternança."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la indemnització per finalització de contracte temporal per circumstàncies de la producció (abans de la reforma)?",
+    "opcions": [
+      "20 dies per any de servei.",
+      "12 dies per any de servei.",
+      "Cap indemnització.",
+      "8 dies per any de servei."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els convenis col·lectius, ¿poden regular qüestions que no estan a l'Estatut dels Treballadors?",
+    "opcions": [
+      "No, només poden copiar-lo.",
+      "Sí, sempre que no vulnerin els seus drets mínims.",
+      "Només si ho permet el govern.",
+      "No, la llei és l'única font."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el dret del treballador a l'inici de la relació laboral?",
+    "opcions": [
+      "Decidir el seu propi salari.",
+      "Rebre una còpia del contracte per escrit.",
+      "No complir les ordres de l'empresari.",
+      "No anar a la feina el primer dia."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El pacte de no concurrència post-contractual, ¿requereix algun requisit per ser vàlid?",
+    "opcions": [
+      "No, n'hi ha prou amb l'acord de les parts.",
+      "Sí, ha d'haver un interès empresarial i una compensació econòmica adequada per al treballador.",
+      "Només un interès empresarial.",
+      "Només la signatura del treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina durada màxima pot tenir el període de prova per a la resta de treballadors (no tècnics titulats) en empreses de menys de 25 treballadors?",
+    "opcions": [
+      "1 mes.",
+      "2 mesos.",
+      "3 mesos.",
+      "6 mesos."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "L'empresa pot modificar unilateralment les condicions pactades en un contracte?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, mai.",
+      "Només si hi ha causes legals i amb el procediment establert (modificació substancial de condicions de treball).",
+      "Si el treballador està d'acord."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és una de les obligacions de l'empresari en el contracte de formació?",
+    "opcions": [
+      "Pagar el 100% del salari des del principi.",
+      "Assegurar que el treballador rep la formació teòrica corresponent.",
+      "No supervisar al treballador.",
+      "Contractar només a persones de més de 30 anys."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un contracte temporal per increment ocasional i imprevisible de la producció, ¿pot superar la durada màxima legal sense esdevenir indefinit?",
+    "opcions": [
+      "Sí, amb una pròrroga.",
+      "No, es convertiria en indefinit.",
+      "Només si hi ha autorització judicial.",
+      "Si el treballador hi està d'acord."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador és cridat a un contracte fix-discontinu i no s'incorpora sense causa justificada, ¿què pot passar?",
+    "opcions": [
+      "No passa res.",
+      "Pot ser considerat una dimissió i perdre el dret a la indemnització.",
+      "L'empresa li ofereix un altre contracte.",
+      "El contracte es converteix en indefinit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin dels següents conceptes NO és una causa de suspensió de la relació laboral?",
+    "opcions": [
+      "Maternitat o paternitat",
+      "Període de prova",
+      "Exercici de càrrec públic representatiu",
+      "Força major temporal"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Durant la suspensió de la relació laboral, quina és la situació principal del contracte?",
+    "opcions": [
+      "El contracte s'extingeix definitivament.",
+      "Es manté el vincle contractual, però s'interrompen les prestacions recíproques (treball i salari).",
+      "El treballador perd tots els seus drets.",
+      "L'empresari pot contractar un altre treballador amb caràcter indefinit per substituir-lo."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador en situació de suspensió de contracte, ¿té dret a cobrar el salari?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, generalment s'interromp el salari, tot i que pot rebre prestacions de la Seguretat Social.",
+      "Només si així ho acorda l'empresari.",
+      "Depèn de la causa de la suspensió."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què succeeix amb la cotització a la Seguretat Social durant un període de suspensió del contracte?",
+    "opcions": [
+      "S'interromp totalment la cotització.",
+      "Generalment es manté l'alta i la cotització, amb aportacions de la Seguretat Social o de l'empresa.",
+      "El treballador ha de pagar totes les seves cotitzacions.",
+      "La Seguretat Social deixa de tenir relació amb el treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents és una causa de suspensió amb dret a reserva del lloc de treball?",
+    "opcions": [
+      "Suspensió de sou i feina per sanció.",
+      "Exercici de funcions sindicals de caràcter provincial o superior.",
+      "Mutu acord de les parts.",
+      "Excedència voluntària ordinària."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és l'efecte principal de l'excedència forçosa per designació o elecció per a un càrrec públic?",
+    "opcions": [
+      "El treballador perd el seu lloc de treball.",
+      "Es manté el dret a la reserva del lloc de treball i es computa l'antiguitat.",
+      "El treballador no té dret a cotitzar a la Seguretat Social.",
+      "L'empresari pot extingir el contracte sense indemnització."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador en excedència voluntària ordinària, ¿té dret a la reserva del seu lloc de treball?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, només té un dret preferent al reingrés si hi ha una vacant de la seva categoria.",
+      "Sí, si l'excedència dura menys de 3 mesos.",
+      "No té cap dret de reingrés."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada mínima de l'excedència voluntària ordinària?",
+    "opcions": [
+      "1 mes.",
+      "4 mesos.",
+      "1 any.",
+      "No hi ha durada mínima."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador pot sol·licitar una excedència voluntària ordinària sense justificació?",
+    "opcions": [
+      "No, sempre ha de ser per una causa justificada.",
+      "Sí, si té almenys un any d'antiguitat a l'empresa i no ha gaudit d'una altra en els quatre anys anteriors.",
+      "Només si l'empresari ho permet.",
+      "Sí, sempre que ho avisi amb antelació."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada màxima de l'excedència per cura de fill?",
+    "opcions": [
+      "1 any.",
+      "2 anys.",
+      "3 anys.",
+      "5 anys."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Durant l'excedència per cura de fill, ¿es computa l'antiguitat del treballador?",
+    "opcions": [
+      "No, mai.",
+      "Sí, per a tots els efectes.",
+      "Només els dos primers anys (o període superior si ho regula el conveni).",
+      "Només si el fill és menor de 12 mesos."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador té dret a la reserva del seu lloc de treball durant l'excedència per cura de familiar fins a quin grau?",
+    "opcions": [
+      "Primer grau de consanguinitat o afinitat.",
+      "Segon grau de consanguinitat o afinitat.",
+      "Tercer grau de consanguinitat o afinitat.",
+      "Qualsevol familiar."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada màxima de l'excedència per cura de familiar (no de fill)?",
+    "opcions": [
+      "1 any.",
+      "2 anys.",
+      "3 anys.",
+      "No hi ha límit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un ERTE (Expedient de Regulació Temporal d'Ocupació)?",
+    "opcions": [
+      "Una causa d'extinció col·lectiva de contractes.",
+      "Una mesura de suspensió o reducció de jornada per causes econòmiques, tècniques, organitzatives o de producció.",
+      "Un tipus de contracte temporal.",
+      "Una prestació de la Seguretat Social."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin dels següents NO és una causa d'extinció de la relació laboral?",
+    "opcions": [
+      "Mort del treballador.",
+      "Jubilació del treballador.",
+      "Excedència voluntària.",
+      "Acomiadament col·lectiu."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és la causa d'extinció de la relació laboral més comuna en el sector públic?",
+    "opcions": [
+      "Jubilació.",
+      "Dimissió del treballador.",
+      "Acomiadament per causes objectives.",
+      "Caducitat del contracte temporal."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Si un treballador dimiteix, ¿té dret a indemnització?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, excepte si s'ha pactat una clàusula en contra.",
+      "Només si ha treballat més de 5 anys.",
+      "Depèn de la causa de la dimissió."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin preavís ha de donar el treballador en cas de dimissió, si no s'ha establert res en conveni o contracte?",
+    "opcions": [
+      "24 hores.",
+      "15 dies.",
+      "1 mes.",
+      "No cal preavís."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "L'extinció del contracte per 'mutu acord de les parts' requereix alguna formalitat?",
+    "opcions": [
+      "No, pot ser verbal.",
+      "Sí, ha de constar per escrit.",
+      "Només si la indemnització és molt alta.",
+      "Dependrà del que digui el conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la indemnització per 'acomiadament improcedent'?",
+    "opcions": [
+      "20 dies per any de servei.",
+      "33 dies per any de servei (amb un màxim de 24 mensualitats) per contractes posteriors a 2012.",
+      "45 dies per any de servei.",
+      "No hi ha indemnització."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és una de les causes de 'acomiadament disciplinari'?",
+    "opcions": [
+      "Reducció de vendes de l'empresa.",
+      "Inassistència injustificada al lloc de treball.",
+      "Canvi de domicili del treballador.",
+      "Finalització del contracte temporal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En cas d'acomiadament disciplinari, ¿quin és el termini màxim per a que l'empresa lliuri la carta d'acomiadament al treballador?",
+    "opcions": [
+      "15 dies des de la falta.",
+      "60 dies des de la falta, i 6 mesos des del coneixement per part de l'empresa.",
+      "No hi ha termini.",
+      "1 any des de la falta."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què succeeix si un acomiadament disciplinari es declara 'procedent'?",
+    "opcions": [
+      "El treballador té dret a indemnització.",
+      "El treballador no té dret a indemnització ni a salari de tramitació.",
+      "L'empresa ha de readmetre el treballador.",
+      "El treballador pot recórrer."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què succeeix si un acomiadament disciplinari es declara 'nul'?",
+    "opcions": [
+      "L'empresa pot triar entre readmetre o indemnitzar.",
+      "L'empresa està obligada a readmetre el treballador amb dret a salaris de tramitació.",
+      "El contracte s'extingeix definitivament.",
+      "El treballador perd els seus drets."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és una de les causes de 'acomiadament per causes objectives'?",
+    "opcions": [
+      "Violació de la bona fe contractual del treballador.",
+      "Ineptitud del treballador coneguda o sobrevinguda.",
+      "Acosament sexual del treballador.",
+      "Absentisme injustificat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina indemnització correspon a l'acomiadament per causes objectives, si es declara procedent?",
+    "opcions": [
+      "33 dies per any de servei.",
+      "20 dies per any de servei amb un màxim de 12 mensualitats.",
+      "Cap indemnització.",
+      "45 dies per any de servei."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin preavís ha de donar l'empresari en un acomiadament per causes objectives?",
+    "opcions": [
+      "24 hores.",
+      "7 dies.",
+      "15 dies.",
+      "30 dies."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què és un ERO (Expedient de Regulació d'Ocupació)?",
+    "opcions": [
+      "Un tipus de contracte temporal.",
+      "Un procediment per a l'extinció col·lectiva de contractes o la suspensió/reducció de jornada permanent.",
+      "Una mesura de flexibilitat horària.",
+      "Una prestació de la Seguretat Social per atur."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "L'extinció del contracte per 'mort, jubilació o incapacitat de l'empresari', ¿genera dret a indemnització per al treballador?",
+    "opcions": [
+      "Sí, sempre de 33 dies per any.",
+      "No, mai.",
+      "Sí, de 15 dies per any de servei, amb un màxim d'una anualitat.",
+      "Depèn del tipus d'empresari."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què succeeix si l'empresari incompleix el preavís en un acomiadament per causes objectives?",
+    "opcions": [
+      "L'acomiadament és nul.",
+      "Ha de pagar una indemnització equivalent als dies de preavís no complerts.",
+      "El treballador perd la indemnització.",
+      "No té cap efecte legal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La jubilació del treballador, ¿és una causa de suspensió o d'extinció del contracte?",
+    "opcions": [
+      "Suspensió.",
+      "Interrupció.",
+      "Extinció.",
+      "Depèn del tipus de jubilació."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què significa 'interrupció' de la relació laboral?",
+    "opcions": [
+      "Extinció definitiva del contracte.",
+      "Suspensió temporal de la prestació de treball amb manteniment de la majoria de drets i obligacions (excepte treball i salari).",
+      "Període de vacances.",
+      "Canvi d'horari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les vacances anuals, ¿es consideren una suspensió o una interrupció?",
+    "opcions": [
+      "Suspensió.",
+      "Interrupció, ja que es segueix cobrant el salari.",
+      "Extinció parcial.",
+      "No és cap de les dues."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és la 'liquidació' o 'fi de sentència' en l'extinció del contracte?",
+    "opcions": [
+      "El document que lliura l'empresari amb les causes de l'extinció.",
+      "El pagament de les quantitats degudes al treballador en el moment de l'extinció del contracte.",
+      "El document de la Seguretat Social.",
+      "La notificació de l'acomiadament."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què inclou el 'finiquito' (liquidació)?",
+    "opcions": [
+      "Salari del mes, part proporcional de pagues extres, vacances no gaudides i indemnització (si correspon).",
+      "Només la indemnització.",
+      "Només el salari del mes.",
+      "Les nòmines dels últims 6 mesos."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "La no lliurament de la liquidació en el moment de l'extinció, ¿invalida l'extinció del contracte?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, però pot generar el dret a una reclamació per part del treballador.",
+      "Només si la quantitat és molt elevada.",
+      "L'empresari pot pagar-ho quan vulgui."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el termini màxim per a interposar una demanda per acomiadament improcedent?",
+    "opcions": [
+      "10 dies hàbils.",
+      "20 dies hàbils.",
+      "1 mes.",
+      "3 mesos."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En cas d'acomiadament objectiu, la carta d'acomiadament ha de:",
+    "opcions": [
+      "Ser verbal.",
+      "Indicar les causes de l'extinció i la data d'efectes.",
+      "Només la data d'efectes.",
+      "Ser lliurada al jutge."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador és acomiadat per causes objectives i l'empresa no pot acreditar la causa, ¿quin tipus d'acomiadament serà declarat?",
+    "opcions": [
+      "Procedent.",
+      "Nul.",
+      "Improcedent.",
+      "Disciplinari."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina és una causa de suspensió per 'força major'?",
+    "opcions": [
+      "Una caiguda de vendes sense motiu extern.",
+      "Un incendi que impedeix l'activitat de l'empresa.",
+      "La mala gestió empresarial.",
+      "L'absència del treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La suspensió per sanció, ¿dona dret a cobrar el salari?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, el treballador no percep salari durant la suspensió.",
+      "Només la meitat del salari.",
+      "Depèn del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "L'excedència per cura de fill, ¿pot ser gaudida per ambdós progenitors a la vegada?",
+    "opcions": [
+      "Sí, sense limitacions.",
+      "No, només un progenitor pot gaudir-la.",
+      "Sí, però només durant un període concret i amb limitacions.",
+      "Només si un treballa a temps parcial."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina de les següents NO és una causa de suspensió amb dret a prestació de la Seguretat Social?",
+    "opcions": [
+      "Incapacitat temporal.",
+      "Maternitat/Paternitat.",
+      "Risc durant l'embaràs o lactància natural.",
+      "Exercici de càrrec públic que no permet assistir al treball."
+    ],
+    "correcta": 3
+  },
+  {
+    "pregunta": "En cas de suspensió del contracte per expedient de regulació temporal d'ocupació (ERTE), ¿qui es fa càrrec de la cotització?",
+    "opcions": [
+      "El treballador.",
+      "L'empresa exclusivament.",
+      "El Servei Públic d'Ocupació Estatal (SEPE) o es manté l'obligació de cotitzar de l'empresa.",
+      "Ningú."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Un treballador té dret a una indemnització per finalització del contracte temporal per finalització de la seva durada?",
+    "opcions": [
+      "No, mai.",
+      "Sí, generalment de 12 dies per any de servei (o la que correspongui a cada modalitat específica).",
+      "Només si ha treballat més de 2 anys.",
+      "Depèn del tipus d'empresa."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador incompleix el preavís de dimissió, ¿què pot fer l'empresari?",
+    "opcions": [
+      "No pagar-li el finiquito.",
+      "Descomptar del finiquito la quantitat corresponent als dies de preavís no complerts.",
+      "Demandar-lo per danys i perjudicis.",
+      "Obligar-lo a complir el preavís."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què es pot considerar una 'interrupció' que no suspèn el contracte, però pot reduir la jornada?",
+    "opcions": [
+      "Una baixa per malaltia.",
+      "Una vaga legal.",
+      "Un permís retribuït per matrimoni.",
+      "Una excedència forçosa."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "L'empresa té l'obligació de notificar la suspensió del contracte a l'autoritat laboral?",
+    "opcions": [
+      "No, només si és un ERTE.",
+      "Sí, en molts casos, especialment si és per causes objectives o col·lectives.",
+      "Només si el treballador ho demana.",
+      "No, és un tràmit intern."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la diferència principal entre una suspensió i una excedència?",
+    "opcions": [
+      "La suspensió és sempre més curta que l'excedència.",
+      "La suspensió sol ser per causes alienes a la voluntat del treballador, mentre que l'excedència sol ser a petició del treballador.",
+      "La suspensió implica sempre cobrament de salari, l'excedència no.",
+      "No hi ha cap diferència."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quan finalitza la relació laboral per 'caducitat del contracte temporal'?",
+    "opcions": [
+      "Quan el treballador vol.",
+      "Quan s'exhaureix el temps o l'obra/servei per al qual va ser contractat.",
+      "Quan l'empresa tanca.",
+      "Quan el treballador es jubila."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'mort del treballador', ¿genera dret a indemnització per a l'empresa?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, extingeix el contracte sense indemnització per a l'empresa.",
+      "Només si el treballador tenia deutes.",
+      "Dependrà del que digui el conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la principal diferència entre l'acomiadament disciplinari i l'objectiu?",
+    "opcions": [
+      "El disciplinari és per causes del treballador, l'objectiu per causes de l'empresa.",
+      "El disciplinari sempre té indemnització, l'objectiu no.",
+      "L'objectiu sempre és il·legal, el disciplinari no.",
+      "No hi ha cap diferència important."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Un treballador pot impugnar un acomiadament?",
+    "opcions": [
+      "No, la decisió de l'empresa és final.",
+      "Sí, davant els tribunals de l'ordre social.",
+      "Només si té un advocat.",
+      "Només si el contracte és indefinit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'expedient de regulació d'ocupació suspensiu'?",
+    "opcions": [
+      "Un ERO per a acomiadaments massius.",
+      "Un ERTE que implica la suspensió temporal de contractes.",
+      "Una multa a l'empresa.",
+      "Un tipus de contracte a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la indemnització màxima en un acomiadament improcedent (per contractes anteriors a febrer de 2012)?",
+    "opcions": [
+      "24 mensualitats.",
+      "33 mensualitats.",
+      "42 mensualitats.",
+      "720 dies de salari."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "La 'jubilació per incapacitat permanent' del treballador, ¿és una causa d'extinció?",
+    "opcions": [
+      "No, és una suspensió.",
+      "Sí.",
+      "Només si la incapacitat és total.",
+      "Depèn si la incapacitat és revisable."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina formalitat és essencial en la 'dimissió' del treballador?",
+    "opcions": [
+      "Ha de ser sempre per escrit.",
+      "Pot ser verbal, però és recomanable que sigui per escrit per a la seva prova.",
+      "Ha d'estar justificada.",
+      "No cal cap formalitat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és el 'salari de tramitació' en un acomiadament?",
+    "opcions": [
+      "El salari que es cobra durant el període de prova.",
+      "El salari que es paga al treballador des de la data de l'acomiadament fins a la notificació de la sentència que el declara improcedent o nul.",
+      "Una indemnització per finalització de contracte temporal.",
+      "El salari del darrer mes."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'mort de l'empresari individual', ¿extingeix automàticament la relació laboral?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, els hereus o successors poden continuar l'activitat i subrogar-se en els contractes.",
+      "Depèn si l'empresa és molt petita.",
+      "Només si l'empresari no tenia béns."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el dret del treballador quan finalitza un contracte temporal per caducitat?",
+    "opcions": [
+      "Dret a atur.",
+      "Dret a una indemnització de 12 dies per any de servei (o la que correspongui).",
+      "Dret a ser recol·locat.",
+      "No té cap dret."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Una 'excedència forçosa per elecció a càrrec sindical d'àmbit superior', ¿requereix un temps mínim d'antiguitat?",
+    "opcions": [
+      "Sí, 1 any.",
+      "No.",
+      "Depèn del conveni col·lectiu.",
+      "Només si el càrrec és a temps complet."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'suspensió del contracte per exercici de dret de vaga', ¿dóna dret a salari?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, és una de les causes de suspensió que no generen dret a salari.",
+      "Només la meitat del salari.",
+      "Dependrà del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és la 'reducció de jornada' com a mesura temporal?",
+    "opcions": [
+      "Una extinció de contracte parcial.",
+      "Una disminució temporal de la jornada de treball amb la consegüent reducció salarial.",
+      "Un canvi permanent d'horari.",
+      "Un permís retribuït."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En l'excedència voluntària ordinària, ¿el treballador conserva el seu antic lloc de treball?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, només un dret preferent al reingrés en un lloc de la mateixa categoria o similar, si hi ha vacant.",
+      "Depèn de la durada de l'excedència.",
+      "Sí, durant els primers 6 mesos."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el termini per sol·licitar el reingrés després d'una excedència forçosa per càrrec públic?",
+    "opcions": [
+      "15 dies des del final de la causa que la va originar.",
+      "30 dies des del final de la causa que la va originar.",
+      "3 mesos.",
+      "No hi ha termini."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què ha de fer l'empresari si acomiada un treballador disciplinari sense complir les formalitats?",
+    "opcions": [
+      "No passa res.",
+      "L'acomiadament es declararà improcedent o nul.",
+      "Ha de pagar una multa.",
+      "Pot contractar un altre treballador immediatament."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'insolvència de l'empresari', ¿és una causa d'extinció que dóna dret a indemnització?",
+    "opcions": [
+      "No, mai.",
+      "Sí, i la indemnització pot ser assumida pel FOGASA amb límits.",
+      "Només si la insolvència és declarada judicialment.",
+      "L'empresari ha de pagar sempre tot el que deu."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de causa no està relacionada amb el rendiment o conducta del treballador en un acomiadament?",
+    "opcions": [
+      "Disciplinària.",
+      "Objectiva.",
+      "Disciplinària i objectiva.",
+      "Cap."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En un acomiadament objectiu, la indemnització s'ha de posar a disposició del treballador en el moment del preavís?",
+    "opcions": [
+      "No, es paga al final.",
+      "Sí, excepte en cas d'insolvència empresarial degudament acreditada.",
+      "Depèn del conveni.",
+      "Només si el treballador la demana."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador no vol reincorporar-se després d'una suspensió, ¿es considera dimissió?",
+    "opcions": [
+      "No, és un acomiadament.",
+      "Sí, pot ser considerada una dimissió tàcita.",
+      "Dependrà de la causa de la suspensió.",
+      "No, no té cap conseqüència."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és l'efecte de la 'declaració d'invalidesa permanent total, absoluta o gran invalidesa' del treballador?",
+    "opcions": [
+      "Suspensió del contracte.",
+      "Extinció del contracte, amb excepció del dret a la recuperació del lloc si es recupera la capacitat en cert termini.",
+      "Interrupció de la relació laboral.",
+      "Dret a una nova contractació."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quan es considera un acomiadament 'nul'?",
+    "opcions": [
+      "Quan no es donen les causes esgrimides per l'empresa.",
+      "Quan vulnera drets fonamentals del treballador (per exemple, per discriminació).",
+      "Quan no s'ha fet el preavís correcte.",
+      "Quan no es paga la indemnització."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'dimissió voluntària' del treballador, ¿és una causa d'extinció que dóna dret a prestació d'atur?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, generalment no dona dret a prestació d'atur.",
+      "Només si hi ha una causa justa de dimissió.",
+      "Depèn de l'antiguitat."
+    ],
+    "correcta": 1
+  },
+{
+    "pregunta": "Quina és la durada màxima de la jornada setmanal de treball efectiu, segons l'Estatut dels Treballadors?",
+    "opcions": [
+      "35 hores",
+      "40 hores",
+      "45 hores",
+      "No hi ha límit legal"
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Com es calcula la jornada màxima setmanal si es fa en còmput anual?",
+    "opcions": [
+      "No es pot fer en còmput anual.",
+      "Es calcula dividint el total d'hores anuals per 52 setmanes, sense superar la mitjana de 40 hores.",
+      "Es fa la mitjana mensual.",
+      "Es suma el total d'hores de tots els mesos."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és la 'jornada reduïda'?",
+    "opcions": [
+      "Una jornada que no arriba a les 40 hores setmanals.",
+      "Una jornada inferior a la jornada màxima legal o a la pactada en conveni col·lectiu.",
+      "Una jornada que es fa només durant les vacances.",
+      "Una jornada de menys de 4 hores diàries."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada màxima de la jornada ordinària diària?",
+    "opcions": [
+      "7 hores",
+      "8 hores",
+      "9 hores, excepte si el conveni col·lectiu o un acord entre empresa i representants dels treballadors estableix una altra distribució.",
+      "10 hores"
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Si un treballador fa jornada continuada i aquesta excedeix de 6 hores, a quin descans té dret?",
+    "opcions": [
+      "No té dret a descans.",
+      "A un període de descans de 15 minuts que es considerarà temps de treball efectiu (o el que estableixi el conveni).",
+      "A 30 minuts de descans sense considerar-se temps de treball efectiu.",
+      "A 1 hora de descans."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és la 'jornada partida'?",
+    "opcions": [
+      "La jornada que es realitza sense interrupcions.",
+      "La jornada que té una o diverses interrupcions, sent la principal per a l'àpat principal.",
+      "La jornada que es reparteix entre diversos departaments.",
+      "La jornada que es fa en dies alterns."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què es considera 'treball nocturn'?",
+    "opcions": [
+      "El realitzat entre les 20h i les 6h.",
+      "El realitzat entre les 22h i les 6h.",
+      "El realitzat entre les 23h i les 7h.",
+      "Qualsevol treball que es faci de nit."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada màxima de la jornada diària dels treballadors nocturns?",
+    "opcions": [
+      "8 hores de mitjana en un període de 15 dies.",
+      "10 hores de mitjana en un període de 20 dies.",
+      "7 hores sense mitjana.",
+      "No hi ha límit."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quina és una característica del treball a torns?",
+    "opcions": [
+      "Sempre és voluntari.",
+      "Sempre és jornada nocturna.",
+      "Que el treballador no pot estar en el mateix torn més d'un nombre determinat de setmanes consecutives en el torn de nit.",
+      "Que no hi ha descans entre torns."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què són les 'hores extraordinàries'?",
+    "opcions": [
+      "Les hores treballades per sota de la jornada màxima.",
+      "Les hores de treball que superen la jornada ordinària.",
+      "Les hores treballades en festius.",
+      "Les hores complementàries en un contracte a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el límit màxim d'hores extraordinàries que es poden realitzar a l'any?",
+    "opcions": [
+      "40 hores.",
+      "60 hores.",
+      "80 hores.",
+      "100 hores."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Com es compensen les hores extraordinàries, si no hi ha pacte en conveni o contracte?",
+    "opcions": [
+      "Sempre es paguen amb un 75% d'increment.",
+      "Es compensen amb temps de descans equivalent o es paguen amb un recàrrec.",
+      "No es compensen.",
+      "Sempre es paguen com a temps de descans."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui pot realitzar hores extraordinàries?",
+    "opcions": [
+      "Qualsevol treballador.",
+      "Només els treballadors a temps complet.",
+      "Només els treballadors majors de 18 anys.",
+      "Només els treballadors amb contracte indefinit."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin és el temps de descans mínim entre el final d'una jornada i l'inici de la següent?",
+    "opcions": [
+      "10 hores.",
+      "12 hores.",
+      "14 hores.",
+      "24 hores."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el període de descans setmanal mínim?",
+    "opcions": [
+      "Un dia i mig ininterromput.",
+      "Dos dies ininterromputs.",
+      "Un dia complet.",
+      "24 hores seguides."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "El descans setmanal pot acumular-se?",
+    "opcions": [
+      "No, sempre ha de ser setmanal.",
+      "Sí, per períodes de fins a 14 dies.",
+      "Sí, fins a un mes.",
+      "Només en sectors molt específics."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és el 'calendari laboral'?",
+    "opcions": [
+      "Un document on es registren les hores de treball de cada empleat.",
+      "Un document on es fixen els dies laborables i festius de l'any a l'empresa.",
+      "Un calendari de les vacances dels treballadors.",
+      "Un horari personalitzat de cada treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui ha d'elaborar i exposar el calendari laboral?",
+    "opcions": [
+      "Els treballadors.",
+      "L'empresari, prèvia consulta amb els representants legals dels treballadors.",
+      "El govern.",
+      "El sindicat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la durada mínima de les vacances anuals retribuïdes?",
+    "opcions": [
+      "15 dies naturals.",
+      "20 dies naturals.",
+      "30 dies naturals.",
+      "22 dies laborables."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Les vacances, ¿es poden substituir per una compensació econòmica?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, excepte en la finalització del contracte o en casos de contractes de durada inferior a l'any.",
+      "Només si el treballador hi està d'acord.",
+      "Depèn del conveni col·lectiu."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el període màxim per fixar les vacances?",
+    "opcions": [
+      "L'empresa les fixa unilateralment.",
+      "Es fixen de comú acord entre l'empresari i el treballador, o amb els representants dels treballadors.",
+      "El treballador les decideix sempre.",
+      "Les fixa el govern."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador està en situació d'incapacitat temporal durant les vacances, ¿què passa amb aquests dies?",
+    "opcions": [
+      "Es perden els dies de vacances.",
+      "Es podran gaudir un cop finalitzada la incapacitat, fins a 18 mesos després del final de l'any a què corresponen.",
+      "Es compensen econòmicament.",
+      "Es redueix la jornada."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina de les següents NO es considera 'jornada ordinària'?",
+    "opcions": [
+      "La jornada a temps complet.",
+      "La jornada a temps parcial.",
+      "Les hores extraordinàries voluntàries.",
+      "La jornada nocturna dins del límit legal."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Les hores extraordinàries, ¿han de ser obligatòries per al treballador?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, són voluntàries, excepte si s'han pactat en conveni o contracte o són de força major.",
+      "Només si hi ha molt de treball.",
+      "Si l'empresari ho decideix."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'permís retribuït'?",
+    "opcions": [
+      "Un permís sense sou.",
+      "Una absència del treball justificada i remunerada.",
+      "Un dia de festa que s'ha de recuperar.",
+      "Un dia de vacances addicional."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un treballador té dret a un permís retribuït per matrimoni?",
+    "opcions": [
+      "No, no és un dret legal.",
+      "Sí, de 15 dies naturals.",
+      "Sí, de 5 dies laborables.",
+      "Depèn del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quantes hores màximes diàries es poden realitzar si s'estableix una distribució irregular de la jornada al conveni?",
+    "opcions": [
+      "9 hores diàries, excepte que per conveni col·lectiu o acord entre empresa i representants dels treballadors s'estableixi una altra distribució.",
+      "10 hores diàries.",
+      "8 hores diàries.",
+      "No hi ha límit diari."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Quin és el descans mínim entre jornades si un treballador ha fet hores extraordinàries?",
+    "opcions": [
+      "No afecta el descans mínim.",
+      "Ha de ser de 12 hores en tots els casos.",
+      "Es pot reduir el descans mínim si hi ha pacte en el conveni.",
+      "Ha de ser de 24 hores."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les hores complementàries, ¿es consideren hores extraordinàries?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, són hores realitzades en un contracte a temps parcial que superen la jornada pactada però no la màxima legal.",
+      "Només si superen el 30% de la jornada.",
+      "Depèn del sector."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La jornada laboral es compta des de:",
+    "opcions": [
+      "L'arribada al lloc de treball.",
+      "L'inici de la prestació de serveis fins a la seva finalització, amb les interrupcions legalment o convencionalment previstes.",
+      "La sortida de casa del treballador.",
+      "La signatura del contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El descans setmanal es pot traslladar a un altre dia si coincideix amb un festiu?",
+    "opcions": [
+      "No, ha de ser el dia establert.",
+      "Sí, amb dret a compensació addicional.",
+      "Només si ho acorda l'empresari.",
+      "No s'especifica al temari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'treballador a torns'?",
+    "opcions": [
+      "Un treballador que fa hores extres regularment.",
+      "Un treballador l'activitat laboral del qual es realitza en grups successius, de manera que els treballadors ocupen successivament els mateixos llocs de treball.",
+      "Un treballador que només treballa de nit.",
+      "Un treballador a temps parcial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les hores extres per 'força major', ¿computen per al límit màxim anual de 80 hores?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, aquestes hores són excepcionals i no computen per al límit anual, però sí que es compensen.",
+      "Depèn de la gravetat de la força major.",
+      "Només si es paguen."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'permís no retribuït'?",
+    "opcions": [
+      "Un permís sense sou.",
+      "Una absència justificada i remunerada.",
+      "Un permís que es compensa amb hores extra.",
+      "Un dia de descans obligatori."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "La jornada laboral dels menors de 18 anys, ¿té alguna particularitat?",
+    "opcions": [
+      "No poden fer hores extraordinàries ni treball nocturn, i la seva jornada màxima diària no pot superar les 8 hores (inclosa la formació).",
+      "És la mateixa que la dels majors d'edat.",
+      "Poden fer fins a 10 hores diàries.",
+      "No tenen dret a descans."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Què és la 'disponibilitat' o 'temps de presència' en la jornada laboral?",
+    "opcions": [
+      "El temps que el treballador està a la feina, sense fer tasques efectives, a disposició de l'empresa.",
+      "El temps de viatge al lloc de treball.",
+      "El temps de descans entre jornades.",
+      "El temps de formació."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Les hores complementàries pactades, ¿s'han de notificar al treballador amb antelació?",
+    "opcions": [
+      "No, es poden demanar en qualsevol moment.",
+      "Sí, amb un preavís mínim de 3 dies, si el conveni no en fixa un de superior.",
+      "Amb 24 hores d'antelació.",
+      "Només si superen un determinat percentatge."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la funció dels convenis col·lectius respecte a la jornada laboral?",
+    "opcions": [
+      "No poden regular la jornada laboral.",
+      "Poden establir una jornada inferior a la legal, però mai superior.",
+      "Poden establir una jornada superior a la legal.",
+      "Només poden regular les vacances."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador no gaudeix les seves vacances per causa imputable a l'empresa, ¿quin dret té?",
+    "opcions": [
+      "Perd el dret a gaudir-les.",
+      "Pot reclamar-les judicialment, o una compensació si ja no es poden gaudir.",
+      "Només pot gaudir-les l'any següent.",
+      "L'empresa no té cap obligació."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és el 'registre de jornada'?",
+    "opcions": [
+      "Un control de les absències injustificades.",
+      "Un sistema per comptabilitzar l'hora d'inici i finalització de la jornada diària de cada treballador.",
+      "El registre de les vacances.",
+      "El registre de les hores extres."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui és responsable de mantenir el registre de jornada?",
+    "opcions": [
+      "El treballador.",
+      "L'empresari.",
+      "El sindicat.",
+      "L'autoritat laboral."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Durant quant de temps s'ha de conservar el registre de jornada a disposició dels treballadors i la Inspecció de Treball?",
+    "opcions": [
+      "3 mesos.",
+      "1 any.",
+      "4 anys.",
+      "Indefinidament."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quina conseqüència pot tenir no complir amb l'obligació de registre de jornada?",
+    "opcions": [
+      "Cap, és un requisit formal.",
+      "Sancions per part de la Inspecció de Treball i presumpció d'hores extres no declarades.",
+      "Només una advertència.",
+      "El tancament de l'empresa."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les interrupcions en la jornada (descansos, àpats), ¿com es consideren a efectes de còmput de temps de treball?",
+    "opcions": [
+      "Sempre són temps de treball efectiu.",
+      "Sempre no són temps de treball efectiu.",
+      "Depèn del que estableixi el conveni col·lectiu, excepte els 15 minuts en jornada continuada de més de 6h.",
+      "Són temps de treball efectiu només si el treballador hi està d'acord."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Els festius laborals, ¿poden ser compensats amb temps de descans?",
+    "opcions": [
+      "No, sempre s'han de treballar.",
+      "Sí, si s'acorda i es compensa amb un dia addicional de descans o amb el seu equivalent econòmic.",
+      "Només si són festius locals.",
+      "S'han de treballar sempre."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la finalitat del descans setmanal?",
+    "opcions": [
+      "Permetre a l'empresari estalviar costos.",
+      "Garantir el descans físic i mental del treballador i la seva conciliació amb la vida personal.",
+      "Augmentar la productivitat de l'empresa.",
+      "Reduir l'absentisme."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les hores extraordinàries, ¿poden ser pagades en espècie?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, s'han de pagar amb diners o compensar amb temps de descans.",
+      "Només si s'acorda en el conveni col·lectiu.",
+      "Depèn del tipus d'hora extra."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els treballadors amb jornada reduïda per guarda legal, ¿tenen dret a ajustar el seu horari?",
+    "opcions": [
+      "No, l'empresa fixa l'horari.",
+      "Sí, per a la conciliació de la vida familiar, sempre que sigui dins de la jornada ordinària.",
+      "Només si ho acorda l'empresari.",
+      "No hi ha regulació per a aquest dret."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les vacances s'han de gaudir obligatòriament dins de l'any natural al qual corresponen?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, excepte en casos d'incapacitat temporal o maternitat/paternitat, en què es poden gaudir l'any següent.",
+      "Sí, però es poden acumular amb les de l'any següent.",
+      "No hi ha termini."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La distribució irregular de la jornada, ¿pot fer-se de forma unilateral per l'empresa?",
+    "opcions": [
+      "Sí, en un 10% de la jornada anual.",
+      "No, ha de pactar-se en conveni col·lectiu o acord d'empresa.",
+      "Sempre és unilateral.",
+      "Només amb autorització de la Inspecció de Treball."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Què és la 'bossa d'hores' en relació amb la jornada?",
+    "opcions": [
+      "Un compte de les hores extra no pagades.",
+      "Un sistema per acumular hores de treball en determinats períodes i compensar-les en altres.",
+      "Una quantitat fixa d'hores que el treballador pot fer cada mes.",
+      "Un sistema de control de l'absentisme."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El calendari laboral ha d'estar visible per a tots els treballadors?",
+    "opcions": [
+      "No, només per als representants dels treballadors.",
+      "Sí, en un lloc visible de cada centre de treball.",
+      "Només si l'empresa és gran.",
+      "És un document intern que no cal exposar."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la conseqüència de no respectar el descans entre jornades?",
+    "opcions": [
+      "El treballador pot exigir una compensació econòmica.",
+      "Una infracció laboral per part de l'empresa.",
+      "El treballador pot dimitir sense preavís.",
+      "No té cap efecte legal."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La jornada laboral màxima anual, ¿es pot superar per pacte individual?",
+    "opcions": [
+      "Sí, amb el consentiment del treballador.",
+      "No, la jornada màxima és un dret indisponible.",
+      "Només si es paguen totes les hores extra.",
+      "Dependrà del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els permisos retribuïts, ¿s'han de recuperar?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, són absències retribuïdes i no recuperables.",
+      "Només si duren més de 3 dies.",
+      "Depèn de la causa del permís."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El dret a fixar el període de gaudi de les vacances, ¿és de l'empresari o del treballador?",
+    "opcions": [
+      "De l'empresari unilateralment.",
+      "Del treballador unilateralment.",
+      "Es fixa de comú acord, o en cas de desacord, ho resoldrà la jurisdicció social.",
+      "Del conveni col·lectiu."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què és la jornada 'a temps parcial'?",
+    "opcions": [
+      "La que té una durada inferior a la jornada a temps complet comparable.",
+      "La que es fa només al matí.",
+      "La que es fa menys de 8 hores diàries.",
+      "La que es fa de forma irregular."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "Les hores complementàries, ¿estan subjectes a cotització a la Seguretat Social?",
+    "opcions": [
+      "No.",
+      "Sí.",
+      "Només si es paguen en efectiu.",
+      "Dependrà del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador fa 10 hores diàries de forma regular i no hi ha pacte, ¿es pot considerar una irregularitat?",
+    "opcions": [
+      "No, és legal si ho accepta el treballador.",
+      "Sí, ja que la jornada diària màxima és de 9 hores, excepte pacte o conveni.",
+      "Només si supera les 40 hores setmanals.",
+      "Depèn del salari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La jornada laboral, ¿es pot modificar unilateralment per l'empresari?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, requereix d'un procediment de modificació substancial de condicions de treball si no hi ha pacte o conveni.",
+      "Només amb el consentiment del treballador.",
+      "Dependrà del tipus de contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és un 'festiu recuperable'?",
+    "opcions": [
+      "Un dia de festa que no cal treballar.",
+      "Un dia de festa que l'empresa pot exigir que es treballi i es compensi amb un altre dia de descans o econòmicament.",
+      "Un festiu que es perd si no es gaudeix.",
+      "Un dia de festa que coincideix amb un diumenge."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El dret a vacances, ¿és irrenunciable?",
+    "opcions": [
+      "No, el treballador pot renunciar a elles.",
+      "Sí, no es poden renunciar ni substituir per compensació econòmica, excepte en els casos legalment establerts.",
+      "Depèn de la quantitat de dies.",
+      "Només si el treballador cobra molt."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què es considera 'salari' segons la definició del Tema 5?",
+    "opcions": [
+      "Qualsevol percepció econòmica del treballador.",
+      "La totalitat de les percepcions econòmiques que el treballador rep per la prestació dels seus serveis laborals, ja sigui en metàl·lic o en espècie.",
+      "Només la remuneració bàsica per la jornada ordinària.",
+      "Exclusivament els plusos de transports."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin dels següents conceptes NO s'inclou en el salari?",
+    "opcions": [
+      "El salari base.",
+      "Les hores extraordinàries.",
+      "Les despeses de locomoció.",
+      "Els plusos de nocturnitat."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què són les 'percepcions no salarials'?",
+    "opcions": [
+      "Aquelles que remuneren el treball efectiu.",
+      "Aquelles que compensen despeses, indemnitzen o supleixen mancances, i no formen part del salari.",
+      "Les pagues extraordinàries.",
+      "Les comissions per vendes."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin tipus de percepcions es consideren 'indemnitzacions o suplerts'?",
+    "opcions": [
+      "El salari base.",
+      "El plus de perillositat.",
+      "Les despeses de manutenció i allotjament per viatges.",
+      "Les hores extres."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Els productes que l'empresa lliura voluntàriament al treballador, ¿es consideren salari en espècie?",
+    "opcions": [
+      "No, mai.",
+      "Sí, si s'estableix així en el contracte o conveni.",
+      "Només si superen un cert valor.",
+      "No s'especifica al temari."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la funció principal del 'salari base'?",
+    "opcions": [
+      "Compensar les hores extres.",
+      "Remunerar el temps de treball o les unitats d'obra, independentment de qualsevol altre factor.",
+      "Compensar les despeses del treballador.",
+      "Pagar les pagues extraordinàries."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què són els 'complements salarials'?",
+    "opcions": [
+      "Pagues extraordinàries.",
+      "Quantitats que s'afegeixen al salari base en funció de circumstàncies personals, del lloc de treball o de la qualitat/quantitat de feina.",
+      "Indemnitzacions per despeses.",
+      "Beneficis socials."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Un 'plus de nocturnitat', ¿és un complement salarial?",
+    "opcions": [
+      "No, és una indemnització.",
+      "Sí, per les condicions del lloc de treball.",
+      "Només si és voluntari.",
+      "És una percepció no salarial."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les 'gratificacions extraordinàries' (pagues extres), ¿quantes són obligatòries per llei?",
+    "opcions": [
+      "Una al mes.",
+      "Dues a l'any, una per Nadal i una altra en la data que es fixi per conveni o acord.",
+      "Tres a l'any.",
+      "No són obligatòries."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les pagues extraordinàries, ¿es poden prorratejar mensualment?",
+    "opcions": [
+      "No, mai.",
+      "Sí, si així ho estableix el conveni col·lectiu o un acord entre empresa i treballadors.",
+      "Només si el treballador hi està d'acord.",
+      "Sempre s'han de pagar al final de l'any."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui fixa el 'Salari Mínim Interprofessional (SMI)'?",
+    "opcions": [
+      "Les empreses.",
+      "Els sindicats.",
+      "El Govern, prèvia consulta amb les organitzacions sindicals i empresarials més representatives.",
+      "Els treballadors."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "El Salari Mínim Interprofessional (SMI), ¿inclou el prorrateig de les pagues extres?",
+    "opcions": [
+      "No, és a part.",
+      "Sí, s'estableix en còmput anual, incloent el prorrateig de les pagues extraordinàries.",
+      "Només si la jornada és a temps parcial.",
+      "No hi ha relació."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la forma habitual de pagament del salari?",
+    "opcions": [
+      "Sempre en metàl·lic.",
+      "En metàl·lic o mitjançant ingrés en compte corrent, amb preferència d'aquest últim.",
+      "Amb xecs bancaris.",
+      "En espècie."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la periodicitat màxima del pagament del salari?",
+    "opcions": [
+      "Setmanal.",
+      "Quinzenal.",
+      "Mensual.",
+      "Bimestral."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Quin document ha de lliurar l'empresari al treballador amb el detall del seu salari?",
+    "opcions": [
+      "El contracte de treball.",
+      "La nòmina o rebut individual de salaris.",
+      "Un certificat d'ingressos.",
+      "La vida laboral."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La nòmina, ¿ha de ser clara i detallada?",
+    "opcions": [
+      "No, pot ser un document senzill.",
+      "Sí, ha de reflectir amb claredat les diferents percepcions del treballador i les deduccions.",
+      "Només cal el salari net.",
+      "No és obligatòria."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els crèdits salarials, ¿tenen alguna preferència en cas d'insolvència de l'empresari?",
+    "opcions": [
+      "No, són un deute més.",
+      "Sí, tenen caràcter preferent sobre qualsevol altre deute de l'empresari (amb límits).",
+      "Només si són salaris de més de 6 mesos.",
+      "Dependrà del jutge."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin organisme garanteix el pagament de salaris en cas d'insolvència empresarial?",
+    "opcions": [
+      "La Seguretat Social.",
+      "El Fons de Garantia Salarial (FOGASA).",
+      "El Servei Públic d'Ocupació Estatal (SEPE).",
+      "Els sindicats."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina part del salari és inembargable, excepte en casos especials?",
+    "opcions": [
+      "El 50% del salari brut.",
+      "La quantitat equivalent al Salari Mínim Interprofessional (SMI).",
+      "Qualsevol quantitat si el deute és inferior a 1.000€.",
+      "Només les pagues extraordinàries."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els salaris que superen el SMI, ¿són embargables totalment?",
+    "opcions": [
+      "Sí, si hi ha deutes.",
+      "No, són embargables conforme a una escala gradual que marca la llei.",
+      "Només si són deutes amb l'administració pública.",
+      "Dependrà del banc."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "En cas de deute per pensions alimentàries de cònjuge o fills, ¿pot el jutge embargar l'SMI?",
+    "opcions": [
+      "No, l'SMI és sempre inembargable.",
+      "Sí, el jutge pot acordar l'embargament fins i tot afectant l'import del SMI.",
+      "Només si el deutor no té altres béns.",
+      "Dependrà de la quantitat de la pensió."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El FOGASA es finança amb:",
+    "opcions": [
+      "Impostos generals.",
+      "Quotes que paguen mensualment tots els empresaris.",
+      "Aportacions de la Seguretat Social.",
+      "Ajuts de la Unió Europea."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El FOGASA, ¿paga la totalitat dels salaris deguts sense límit d'import?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, té uns límits màxims d'import i de dies de salari.",
+      "Només paga els salaris de menys de 3 mesos.",
+      "Depèn del nombre de treballadors de l'empresa."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la base de càlcul per determinar el salari?",
+    "opcions": [
+      "El salari base.",
+      "El que estableix el conveni col·lectiu o, en defecte, el contracte de treball, respectant el SMI.",
+      "El que l'empresari decideix unilateralment.",
+      "El salari del darrer any."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els plusos de transport, ¿són percepcions salarials o no salarials?",
+    "opcions": [
+      "Salarials.",
+      "No salarials (indemnitzacions o suplerts).",
+      "Dependrà del conveni.",
+      "Són part del salari base."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què és el 'salari en espècie'?",
+    "opcions": [
+      "El salari pagat en diners.",
+      "Aquella part del salari que es percep en béns, drets o serveis (habitatge, cotxe, tiquets restaurant, etc.).",
+      "El salari que es paga amb productes de l'empresa.",
+      "El salari que es cobra en vacances."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la limitació del salari en espècie respecte al total del salari?",
+    "opcions": [
+      "No té limitació.",
+      "No pot superar el 30% del salari total del treballador.",
+      "No pot superar el 50% del salari base.",
+      "No es pot pagar en espècie."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els complements salarials, ¿poden ser absorbibles o no absorbibles?",
+    "opcions": [
+      "Sempre són absorbibles.",
+      "Sempre no són absorbibles.",
+      "Sí, depenent del que estableixi el conveni o acord.",
+      "No s'especifica al temari."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Què significa que un complement salarial sigui 'absorbible'?",
+    "opcions": [
+      "Que es suma al salari base sense cap canvi.",
+      "Que pot ser compensat per un increment posterior del salari base o per altres complements.",
+      "Que no es pot pagar en diners.",
+      "Que es perd si el treballador canvia de lloc."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les pagues extraordinàries, ¿es meriten (es generen) anualment o semestralment?",
+    "opcions": [
+      "Sempre anualment.",
+      "Depèn del conveni, poden meritar-se anualment o semestralment.",
+      "Sempre semestralment.",
+      "Cada mes."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Si un treballador entra a treballar a l'empresa a mitjans d'any, ¿té dret a les pagues extres complertes?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, té dret a la part proporcional corresponent al temps de servei.",
+      "Només la paga de Nadal.",
+      "No té dret a pagues extres el primer any."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els 'incentius a la producció', ¿es consideren un complement salarial?",
+    "opcions": [
+      "No, són percepcions no salarials.",
+      "Sí, per la quantitat o qualitat de feina.",
+      "Són hores extres.",
+      "Formen part de les indemnitzacions."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El 'salari per unitat d'obra' (o a destajo), ¿com es determina?",
+    "opcions": [
+      "Pel temps de treball efectiu.",
+      "En funció de la quantitat i qualitat de la feina realitzada, independentment del temps invertit.",
+      "Només per hores extres.",
+      "Està prohibit per llei."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'antiguitat' com a complement salarial, ¿s'abona en totes les empreses?",
+    "opcions": [
+      "Sí, és obligatori per llei.",
+      "No, la seva existència i regulació depèn del conveni col·lectiu.",
+      "Només en el sector públic.",
+      "Només si el treballador ho demana."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les 'dietes' per desplaçament, ¿són part del salari?",
+    "opcions": [
+      "Sí, sempre.",
+      "No, són percepcions no salarials destinades a compensar despeses.",
+      "Depèn si són molt altes.",
+      "Són complements salarials."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El pagament del salari, ¿pot fer-se en una moneda estrangera?",
+    "opcions": [
+      "Sí, si és una empresa internacional.",
+      "No, el salari ha de ser abonat en moneda de curs legal (Euro).",
+      "Només si el treballador és estranger.",
+      "S'especifica en el contracte."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què passa si l'empresari no paga el salari a temps?",
+    "opcions": [
+      "No hi ha cap conseqüència.",
+      "El treballador pot reclamar-ho judicialment i té dret a un interès de mora del 10% anual.",
+      "El contracte es rescindeix automàticament.",
+      "L'empresa és sancionada amb el tancament."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els imports destinats a compensar 'despeses de manteniment d'eines' per part del treballador, ¿s'inclouen en el salari?",
+    "opcions": [
+      "Sí.",
+      "No, són percepcions no salarials.",
+      "Només si les eines són de l'empresa.",
+      "Depèn del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la finalitat del Salari Mínim Interprofessional (SMI)?",
+    "opcions": [
+      "Limitar els salaris dels treballadors.",
+      "Assegurar que cap treballador percebi una retribució inferior a un mínim vital.",
+      "Només afectar els contractes a temps parcial.",
+      "Determinar les retencions fiscals."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'estructura salarial' d'una empresa es compon de:",
+    "opcions": [
+      "Només el salari base.",
+      "Salari base, complements salarials, pagues extraordinàries i percepcions no salarials.",
+      "Salari net i salari brut.",
+      "Només les deduccions."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Les 'indemnitzacions per acomiadament', ¿es consideren salari?",
+    "opcions": [
+      "Sí, són part del salari.",
+      "No, són percepcions no salarials.",
+      "Depèn del tipus d'acomiadament.",
+      "Només si es paguen en metàl·lic."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El 'plus de penositat', ¿és un complement salarial?",
+    "opcions": [
+      "No.",
+      "Sí, per les condicions del lloc de treball.",
+      "És una indemnització.",
+      "Forma part de les pagues extres."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Què són les 'retencions' en la nòmina?",
+    "opcions": [
+      "Import extra que l'empresa paga al treballador.",
+      "Deduccions del salari brut per a impostos (IRPF) i cotitzacions a la Seguretat Social.",
+      "Multes al treballador.",
+      "Despeses que l'empresa paga per endavant."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El 'salari net' és:",
+    "opcions": [
+      "El salari abans de qualsevol deducció.",
+      "El salari brut menys les retencions i deduccions legals.",
+      "El salari base més els complements.",
+      "Les pagues extres prorratejades."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El FOGASA, ¿garanteix el pagament de salaris i indemnitzacions?",
+    "opcions": [
+      "Només salaris.",
+      "Sí, salaris i indemnitzacions, amb els límits legals establerts.",
+      "Només indemnitzacions.",
+      "Només els salaris endarrerits d'un any."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quina és la funció de la nòmina?",
+    "opcions": [
+      "Calcular els impostos de l'empresa.",
+      "Informar al treballador del seu salari i de les deduccions efectuades, i servir de justificació del pagament.",
+      "Determinar el tipus de contracte.",
+      "Fixar l'horari de treball."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'participació en beneficis' (si existeix), ¿es considera complement salarial?",
+    "opcions": [
+      "No, és una donació.",
+      "Sí, complement per la qualitat o quantitat de feina.",
+      "És una percepció no salarial.",
+      "Forma part del salari en espècie."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els 'àpats o tiquets restaurant', ¿com es classifiquen si no superen el límit legal?",
+    "opcions": [
+      "Salari base.",
+      "Complements salarials.",
+      "Percepcions no salarials (indemnitzacions o suplerts).",
+      "Pagues extres."
+    ],
+    "correcta": 2
+  },
+  {
+    "pregunta": "Els salaris meriten interessos de mora des de que l'empresari es constitueix en mora?",
+    "opcions": [
+      "No, els salaris no generen interessos.",
+      "Sí, amb un interès del 10% anual, excepte pacte en contrari.",
+      "Només si el treballador ho demana judicialment.",
+      "Depèn de la quantitat."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els salaris poden ser objecte de compensació per deutes del treballador amb l'empresa?",
+    "opcions": [
+      "Sí, totalment.",
+      "No, la compensació i retenció de salaris està molt limitada per llei i només pot fer-se en casos molt concrets (bestretes, errors, etc.).",
+      "Només si són deutes de més d'un any.",
+      "Depèn del conveni."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Quin és el termini de prescripció per reclamar salaris?",
+    "opcions": [
+      "6 mesos.",
+      "1 any.",
+      "3 anys.",
+      "5 anys."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "La determinació del salari, ¿pot ser inferior al que estableix el conveni col·lectiu?",
+    "opcions": [
+      "No, mai.",
+      "Sí, si el treballador hi està d'acord.",
+      "Només en contractes temporals.",
+      "Depèn de la situació econòmica de l'empresa."
+    ],
+    "correcta": 0
+  },
+  {
+    "pregunta": "El FOGASA, ¿també paga els salaris de treballadors autònoms o socis de l'empresa?",
+    "opcions": [
+      "Sí, sense distinció.",
+      "No, només paga salaris i indemnitzacions als treballadors per compte d'altri.",
+      "Només si són autònoms dependents.",
+      "Si són familiars de l'empresari, sí."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'vestimenta de treball' proporcionada per l'empresa, ¿és una percepció salarial?",
+    "opcions": [
+      "Sí, en espècie.",
+      "No, es considera una eina de treball i no és una percepció salarial.",
+      "Depèn del tipus de vestimenta.",
+      "Només si té un valor molt alt."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els compliments salarials per 'plus de conveni' es determinen per:",
+    "opcions": [
+      "L'acord individual amb l'empresari.",
+      "El que estableix el conveni col·lectiu.",
+      "El Salari Mínim Interprofessional.",
+      "L'antiguitat del treballador."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La 'base de cotització' del treballador, ¿inclou les percepcions no salarials?",
+    "opcions": [
+      "Sí, totes.",
+      "No, només les percepcions salarials, amb algunes excepcions o límits per a certes percepcions no salarials que cotitzen.",
+      "Només si superen el SMI.",
+      "Depèn del tipus de percepció."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "El 'salari brut' és:",
+    "opcions": [
+      "El que el treballador rep al banc.",
+      "La suma de totes les percepcions salarials i no salarials abans de les deduccions.",
+      "Només el salari base.",
+      "El salari net més les hores extres."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Qui ha de signar el rebut de salaris (nòmina)?",
+    "opcions": [
+      "Només l'empresari.",
+      "L'empresari i el treballador, per a la seva conformitat.",
+      "El treballador només si no està d'acord.",
+      "No cal que la signi ningú."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "La retribució per 'hores extres', ¿pot ser inferior al valor de l'hora ordinària?",
+    "opcions": [
+      "Sí, si es pacta.",
+      "No, el seu valor no pot ser inferior al de l'hora ordinària i ha de compensar-se amb un recàrrec o temps de descans.",
+      "Depèn del conveni.",
+      "Només si la jornada és reduïda."
+    ],
+    "correcta": 1
+  },
+  {
+    "pregunta": "Els salaris per 'unitat de temps', ¿com es calculen?",
+    "opcions": [
+      "Per la quantitat de feina feta.",
+      "En funció de la durada de la prestació de serveis (per hora, dia, mes, etc.).",
+      "Per les vendes realitzades.",
+      "Per la productivitat."
+    ],
+    "correcta": 1
+  }
+];
 
     let preguntesPendents = [...preguntes];
     let encerts = 0;
